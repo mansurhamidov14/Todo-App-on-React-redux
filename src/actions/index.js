@@ -11,6 +11,7 @@ export const TODOS_BY_DATE = 'TODOS_BY_DATE';
 export const ADD_TODO_PAGE = 'ADD_TODO_PAGE';
 export const TODO_LIST_PAGE = 'TODO_LIST_PAGE';
 export const SET_DATE = 'SET_DATE';
+export const SET_COUNT = 'SET_COUNT';
 
 export const addTodo = payload => ({
   type: ADD_TODO,
@@ -27,7 +28,7 @@ export const toggleTodo = id => ({
   id: parseInt(id, 10)
 });
 
-export const SET_VISIBILITY_FILTER = filter => ({
+export const setVisibilityFilter = filter => ({
   type: SET_VISIBILITY_FILTER,
   filter
 });
@@ -37,7 +38,12 @@ export const setPageToView = page => ({
   page
 });
 
-export const SET_DATE = date => ({
+export const setShownDate = date => ({
   type: SET_DATE,
   date
+});
+
+export const setCount = count => ({
+  type: SET_COUNT,
+  count
 })

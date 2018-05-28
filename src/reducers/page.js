@@ -1,6 +1,6 @@
 import { SET_PAGE, TODOS_BY_DATE } from '../actions';
 
-export const page = (state=TODOS_BY_DATE, action) => {
+const page = (state = TODOS_BY_DATE, action) => {
   switch (action.type) {
     case SET_PAGE:
       return action.page;
@@ -8,3 +8,5 @@ export const page = (state=TODOS_BY_DATE, action) => {
       return state;
   }
 }
+
+export default page;
