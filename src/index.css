@@ -1,12 +1,27 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.header {
+  position:fixed;
+  top:0;
+  left:0;
+  height:70px;
 }
-
+.rendered-component {
+  position:relative;
+  top:70px;
+}
+.bg-light-grey {
+  background: #eaeaea;
+}
 .footer {
   position:fixed;
   bottom:0;
   left:0;
-  height: 45px;
+}
+.font-px-18 {
+  font-size:18px;
+}
+.font-px-24 {
+  font-size:24px;
+}
+.active-tab {
+  background-color:#26A1FF;
 }
