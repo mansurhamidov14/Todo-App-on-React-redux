@@ -38,6 +38,7 @@ export const setPageToView = page => ({
   page
 });
 
+
 export const setShownDate = date => ({
   type: SET_DATE,
   date

@@ -1,6 +1,10 @@
 import { SET_DATE } from '../actions';
 
-const initialState = new Date().getTime();
+const today = new Date();
+const currentYear = today.getFullYear();
+const currentMonth = ("0" + (today.getMonth() + 1)).slice(-2);
+const currentDayOfMonth = today.getDate();
+const initialState = new Date(`${currentYear}-${currentMonth}-${currentDayOfMonth}`).getTime();
 
 const currentDate = (state = initialState, action) => {
   switch (action.type) {

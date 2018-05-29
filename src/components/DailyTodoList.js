@@ -13,7 +13,7 @@ const DailyTodoList = ({todos, onTodoClick, onTodoDelete}) => (
         </thead>
         <tbody>
           {todos.map(todo => <Todo key={todo.id} {...todo} onToggleClick={() => onTodoClick(todo.id)} onDeleteClick={() => onTodoDelete(todo.id)}/>)}
-          <td colSpan="2" className="text-warning text-center font-px-24">{!todos.length ? 'Bu gün üçün görülməli iş əlavə edilməyib' : ''}</td>
+          <tr><td colSpan="2" className="text-warning text-center font-px-24">{!todos.length ? 'Bu gün üçün görülməli iş əlavə edilməyib' : ''}</td></tr>
         </tbody>
       </table>
     </div>

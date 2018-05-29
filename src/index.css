@@ -25,3 +25,6 @@
 .active-tab {
   background-color:#26A1FF;
 }
+.none-decoration:hover {
+  text-decoration: none;
+}
