@@ -6,11 +6,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <VisibleTodoList />
-        <AddTodo />
+        
       </div>
     );
   }
 }
+
+// <VisibleTodoList />
+// <AddTodo />
 
 export default App;
