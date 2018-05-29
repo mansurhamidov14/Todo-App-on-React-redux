@@ -19,7 +19,7 @@ const CurrentDate = ({currentDate, setShownDate}) => {
         <p className="text-secondary font-px-18">{weekday}</p>
       </div>
       <div className="col-2 text-right font-px-24 mt-3">
-        <a href="#" className="text-secondary fa fa-chevron-right none-decoration" onClick={event => {event.preventDefault(); setShownDate(parseInt(currentDate, 10) - 86400000)}}></a>
+        <a href="#" className="text-secondary fa fa-chevron-right none-decoration" onClick={event => {event.preventDefault(); setShownDate(parseInt(currentDate, 10) + 86400000)}}></a>
       </div>
     </div>
   );
