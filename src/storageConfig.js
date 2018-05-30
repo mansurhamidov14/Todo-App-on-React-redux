@@ -7,7 +7,7 @@ import rootReducer from './reducers'
 const persistConfig = {
   key: 'root',
   storage,
-  //blacklist: ['calculationResult, carColumnResult']
+  whitelist: ['todos']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

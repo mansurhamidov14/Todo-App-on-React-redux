@@ -1,6 +1,6 @@
-import { SET_PAGE, TODOS_BY_DATE } from '../actions';
+import { SET_PAGE } from '../actions';
 
-const page = (state = TODOS_BY_DATE, action) => {
+const page = (state = '/home', action) => {
   switch (action.type) {
     case SET_PAGE:
       return action.page;

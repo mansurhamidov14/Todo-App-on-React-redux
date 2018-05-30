@@ -4,6 +4,9 @@
   left:0;
   height:70px;
 }
+.px-w-60 {
+  width: 60px;
+}
 .px-w-90 {
   width: 90px;
 }
@@ -37,4 +40,7 @@
 }
 .table-condensed {
   width: 100%;
+}
+#addSuccess {
+  display:none;
 }

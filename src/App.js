@@ -20,6 +20,7 @@ class App extends Component {
               </div>
             </div>
           </div>
+          <Route exact path="/" component={DailyTodosPage}/>
           <Route path="/home" component={DailyTodosPage}/>
           <Route path="/add_todo" component={AddTodo}/>
           <Footer />

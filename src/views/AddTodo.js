@@ -17,6 +17,9 @@ class AddTodo extends Component {
       <div className="container-fluid rendered-component bg-light">
         <div className="row">
           <div className="col-12 mt-3">
+            <div class="alert alert-success text-center" id="addSuccess" role="alert">
+              Görüləcək iş müvəffəqiyyətlə əlavə olundu!
+            </div>
             <div className="form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
@@ -36,12 +39,15 @@ class AddTodo extends Component {
                   <div className="input-group-text px-w-90">Tarix</div>
                 </div>
                 <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder="Tarix"/>
+                <div className="input-group-append">
+                  <div className="input-group-text fa fa-calendar px-w-60"></div>
+                </div>
                 <div className="input-group-addon">
                     <span className="glyphicon glyphicon-th"></span>
                 </div>
               </div>
             </div>
-            <button type="button" className="btn btn-success" onClick={this.submitForm.bind(this)}>Əlavə et</button>
+            <button type="button" className="btn btn-success" id="addTodo" onClick={this.submitForm.bind(this)}>Əlavə et</button>
           </div>
         </div>
       </div>
