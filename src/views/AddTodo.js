@@ -4,21 +4,49 @@ import { addTodo } from '../actions';
 
 class AddTodo extends Component {
   submitForm () {
+    console.log(this.date.value);
     let date = new Date(this.date.value);
     date = date.getTime();
     this.props.dispatch(addTodo({text: this.text.value, date}));
+    this.text.value = null;
+    this.date.value = null;
   }
 
   render () {
     return (
-      <div>
-        <input type="text" ref={node => this.text = node} placeholder="title"/><br />
-        <input type="text" ref={node => this.date = node} placeholder="date"/><br />
-        <button type="button" onClick={this.submitForm.bind(this)}>Add todo</button>
+      <div className="container-fluid rendered-component bg-light">
+        <div className="row">
+          <div className="col-12 mt-3">
+            <div className="form-group">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <div className="input-group-text px-w-90">Başlıq</div>
+                </div>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="shooting-position-x"
+                    placeholder="Başlıq"
+                    ref={node => this.text = node}/>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-group date" data-provide="datepicker">
+                <div className="input-group-prepend">
+                  <div className="input-group-text px-w-90">Tarix</div>
+                </div>
+                <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder="Tarix"/>
+                <div className="input-group-addon">
+                    <span className="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+            </div>
+            <button type="button" className="btn btn-success" onClick={this.submitForm.bind(this)}>Əlavə et</button>
+          </div>
+        </div>
       </div>
     )
   }
 }
-
 
 export default connect()(AddTodo);

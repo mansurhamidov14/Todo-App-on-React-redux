@@ -4,6 +4,9 @@
   left:0;
   height:70px;
 }
+.px-w-90 {
+  width: 90px;
+}
 .rendered-component {
   position:relative;
   top:70px;
@@ -27,4 +30,11 @@
 }
 .none-decoration:hover {
   text-decoration: none;
+}
+.datepicker.dropdown-menu {
+  width: calc(100% - 30px);
+  font-size: 18px;
+}
+.table-condensed {
+  width: 100%;
 }

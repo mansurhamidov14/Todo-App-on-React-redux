@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/bootstrap.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/bootstrap-grid.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/font-awesome.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/bootstrap-datepicker.standalone.min.css">
 
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -45,5 +46,18 @@
     <script type="text/javascript" src="%PUBLIC_URL%/popper.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.az.min.js" charset="UTF-8"></script>
+    <script>
+      $.fn.datepicker.defaults.autoclose = true;
+      $.fn.datepicker.defaults.language = 'az';
+      $(document).ready(function () {
+        $('.datepicker').datepicker({
+          language: 'az',
+          format: 'dd/mm/yyyy',
+          autoclose: true
+        });
+      })
+    </script>
   </body>
 </html>
