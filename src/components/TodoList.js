@@ -9,6 +9,7 @@ class TodoList extends Component {
     this.state = {
       deleteId: null
     }
+    console.log(this.props.visibiltyFilter);
   }
 
   cancelDelete () {
@@ -41,7 +42,7 @@ class TodoList extends Component {
       <div className="row">
         <div className="col-12 mt-3">
           <div className="form-group text-center">
-            <label htmlFor="filter"><span class="badge badge-primary px-5 font-px-18 font-weight-normal">Filtr seçin</span></label>
+            <label htmlFor="filter"><span className="badge badge-primary px-5 font-px-18 font-weight-normal">Filtr seçin</span></label>
             <select id="inputState" className="form-control" value={visibilityFilter} onChange={this.changeFilter.bind(this)}>
               <option value="SHOW_ALL">Hamısını göstər</option>
               <option value="SHOW_COMPLETED">Yerinə yetirilmişlər</option>
