@@ -17,7 +17,7 @@ class AddTodo extends Component {
       <div className="container-fluid rendered-component bg-light">
         <div className="row">
           <div className="col-12 mt-3">
-            <div class="alert alert-success text-center" id="addSuccess" role="alert">
+            <div className="alert alert-success text-center" id="addSuccess" role="alert">
               Görüləcək iş müvəffəqiyyətlə əlavə olundu!
             </div>
             <div className="form-group">
