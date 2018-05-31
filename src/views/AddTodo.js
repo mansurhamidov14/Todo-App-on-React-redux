@@ -4,7 +4,6 @@ import { addTodo } from '../actions';
 
 class AddTodo extends Component {
   submitForm () {
-    console.log(this.date.value);
     let date = new Date(this.date.value);
     date = date.getTime();
     this.props.dispatch(addTodo({text: this.text.value, date}));

@@ -23,10 +23,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onTodoClick: id => dispatch(toggleTodo(id)),
-  onShowMore: count => dispatch(setCount(parseInt(count, 10) + 10)),
-  onFilterChange: filter => dispatch(setVisibilityFilter(filter)),
-  onTodoDelete: id => dispatch(removeTodo(id))
+  onTodoClick: id => dispatch(toggleTodo(id))
 })
 
 export default connect(

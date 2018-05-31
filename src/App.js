@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import VisibleTodoList from './components/VisibleTodoList';
 import DailyTodosPage from './views/DailyTodosPage';
 import AddTodo from './views/AddTodo';
+import Todolist from './views/TodoList';
 import Footer from './components/footer';
 import strings from './translates/strings';
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/" component={DailyTodosPage}/>
           <Route path="/home" component={DailyTodosPage}/>
           <Route path="/add_todo" component={AddTodo}/>
+          <Route path="/todolist" component={Todolist}/>
           <Footer />
         </div>
       </Router>

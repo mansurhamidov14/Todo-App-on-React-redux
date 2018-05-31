@@ -8,7 +8,6 @@ const todos = (state = initialState, action) => {
       return [...state, {...action.payload, completed:false, id: state.length === 0 ? 1 : state[state.length - 1].id + 1}];
     case REMOVE_TODO:
       let index = state.indexOf(...state.filter(t => t.id == action.id))
-      console.log(index);
       return [
       ...state.slice(0, index),
       ...state.slice(index + 1)
