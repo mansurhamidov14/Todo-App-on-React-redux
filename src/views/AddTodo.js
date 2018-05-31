@@ -46,7 +46,7 @@ class AddTodo extends Component {
                 </div>
               </div>
             </div>
-            <button type="button" className="btn btn-success" id="addTodo" onClick={this.submitForm.bind(this)}>Əlavə et</button>
+            <button type="button" className="btn btn-success w-100" id="addTodo" onClick={this.submitForm.bind(this)}>Əlavə et</button>
           </div>
         </div>
       </div>
