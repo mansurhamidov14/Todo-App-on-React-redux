@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import Todo from './Todo';
+import Todo from './TodoWithDate';
 import { removeTodo, setVisibilityFilter, setCount } from '../actions';
 
 class TodoList extends Component {
@@ -56,7 +56,7 @@ class TodoList extends Component {
               </tr>
             </thead>
             <tbody>
-              {todos.map(todo => <Todo key={todo.id} {...todo} todoId={todo.id} onToggleClick={() => onTodoClick(todo.id)} onDeleteClick={this.setItemToDelete.bind(this)}/>)}
+              {todos.map(todo => <Todo key={todo.id} {...todo} todoId={todo.id} onToggleClick={() => onTodoClick(todo.id)} onDeleteClick={this.setItemToDelete.bind(this)} date={todo.date}/>)}
               <tr><td colSpan="2" className="text-danger text-center font-px-16">{!todos.length ? 'Filtr üzrə heçnə tapılmadı' : ''}</td></tr>
             </tbody>
           </table>
