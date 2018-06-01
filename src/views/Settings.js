@@ -13,7 +13,6 @@ const Settings = ({language, changeLanguage}) => (
             onClick={event => {event.preventDefault()}}>
             <span className="fa fa-language mr-3"></span>
             <span>{strings[language]['language_selection']}</span>
-            <span className="justify-self-end"></span>
           </a>
           <a href="#"
             className="list-group-item list-group-item-action"
@@ -27,8 +26,9 @@ const Settings = ({language, changeLanguage}) => (
             </a>
           <a href="#"
             className="list-group-item list-group-item-action"
-            onClick={event => {event.preventDefault(); changeLanguage('ru');}}>Русский язык</a>
+            onClick={event => {event.preventDefault(); changeLanguage('ru');}}>Русский язык
             <span className={language === 'ru' ? "language-checked fa fa-check-square text-primary" : ""}></span>
+            </a>
         </div>
       </div>
     </div>

@@ -26,6 +26,9 @@ const strings = {
   },
   en: {
 
+  },
+  ru: {
+    
   }
 }
 
