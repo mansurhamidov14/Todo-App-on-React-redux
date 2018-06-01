@@ -18,7 +18,8 @@ const getVisibleTodos = (todos, filter, count) => {
 const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter, state.count),
   count: state.count,
-  visibilityFilter: state.visibilityFilter
+  visibilityFilter: state.visibilityFilter,
+  language: state.language
 })
 
 const mapDispatchToProps = (dispatch) => ({

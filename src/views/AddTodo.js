@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
+import strings from '../translates/strings';
 
 class AddTodo extends Component {
   submitForm () {
@@ -12,17 +13,18 @@ class AddTodo extends Component {
   }
 
   render () {
+    let { language } = this.props;
     return (
       <div className="container-fluid rendered-component bg-light">
         <div className="row">
           <div className="col-12 mt-3">
             <div className="alert alert-success text-center" id="addSuccess" role="alert">
-              Görüləcək iş müvəffəqiyyətlə əlavə olundu!
+              {strings[language]['todo_added']}
             </div>
             <div className="form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">Başlıq</div>
+                  <div className="input-group-text px-w-90">{strings[language]['title']}</div>
                 </div>
                 <input
                     type="text"
@@ -35,9 +37,9 @@ class AddTodo extends Component {
             <div className="form-group">
               <div className="input-group date" data-provide="datepicker">
                 <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">Tarix</div>
+                  <div className="input-group-text px-w-90">{strings[language]['date']}</div>
                 </div>
-                <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder="Tarix"/>
+                <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder={strings[language]['date']}/>
                 <div className="input-group-append">
                   <div className="input-group-text fa fa-calendar px-w-60"></div>
                 </div>
@@ -46,7 +48,7 @@ class AddTodo extends Component {
                 </div>
               </div>
             </div>
-            <button type="button" className="btn btn-success w-100" id="addTodo" onClick={this.submitForm.bind(this)}>Əlavə et</button>
+            <button type="button" className="btn btn-success w-100" id="addTodo" onClick={this.submitForm.bind(this)}>{strings[language]['add_todo']}</button>
           </div>
         </div>
       </div>
@@ -54,4 +56,8 @@ class AddTodo extends Component {
   }
 }
 
-export default connect()(AddTodo);
+const mapStateToProps = state => ({
+  language: state.language
+})
+
+export default connect(mapStateToProps)(AddTodo);

@@ -8,7 +8,8 @@ const getDailyTodos = (todos, date) => {
 
 const mapStateToProps = state => ({
   todos: getDailyTodos(state.todos, state.currentDate),
-  currentDate: state.currentDate
+  currentDate: state.currentDate,
+  language: state.language
 })
 
 const mapDispatchToProps = (dispatch) => ({
