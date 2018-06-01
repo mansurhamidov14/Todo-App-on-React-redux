@@ -3,12 +3,16 @@
   top:0;
   left:0;
   height:70px;
+  z-index: 200;
 }
 .px-w-60 {
   width: 60px;
 }
 .px-w-90 {
   width: 90px;
+}
+.px-w-120 {
+  width: 120px;
 }
 .rendered-component {
   position:relative;
