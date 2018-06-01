@@ -4,7 +4,12 @@ const strings = {
     months: ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun', 'İyul', 'Avqust', 'Sentrabr', 'Oktyabr', 'Noyabr', 'Dekabr'],
     home: 'Gündəlik siyahı',
     todolist: 'Ümumi siyahı',
-    add_todo: 'Yeni iş əlavə et'
+    add_todo: 'Yeni iş əlavə et',
+    settings: 'Sazlamalar',
+    language_selection: 'Dil seçimi'
+  },
+  en: {
+
   }
 }
 

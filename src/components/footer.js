@@ -33,8 +33,17 @@ const Footer = ({page, setPageToView}) => (
                 'py-2 text-center'}
                  onClick={event => {setPageToView('/add_todo');}}
                 ><span className="text-light fa fa-calendar-plus-o"></span>
-              </div>
-            </Link>
+            </div>
+          </Link>
+          <Link className="col none-decoration px-0" to="/settings">
+            <div
+              className={page === '/settings' ?
+                'py-2 text-center active-tab' :
+                'py-2 text-center'}
+                 onClick={event => {setPageToView('/settings');}}
+                ><span className="text-light fa fa-cog"></span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

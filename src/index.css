@@ -53,3 +53,7 @@
 #addSuccess {
   display:none;
 }
+.language-checked {
+  position:absolute;
+  right:15px;
+}
