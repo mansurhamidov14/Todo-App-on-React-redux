@@ -9,8 +9,8 @@ const Settings = ({language, changeLanguage}) => (
     <div className="row">
       <div className="col-12 mt-3">
         <div className="list-group">
-          <a 
-            className="list-group-item list-group-item-action active h5"
+          <a
+            className="list-group-item list-group-item-action active h5 text-light"
             onClick={event => {event.preventDefault()}}>
             <span className="fa fa-language mr-3"></span>
             <span>{strings[language]['language_selection']}</span>

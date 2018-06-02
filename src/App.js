@@ -5,6 +5,7 @@ import DailyTodosPage from './views/DailyTodosPage';
 import AddTodo from './views/AddTodo';
 import Todolist from './views/TodoList';
 import Settings from './views/Settings';
+import About from './views/About';
 import Footer from './components/footer';
 import strings from './translates/strings';
 
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path="/add_todo" component={AddTodo}/>
           <Route path="/todolist" component={Todolist}/>
           <Route path="/settings" component={Settings}/>
+          <Route path="/about" component={About}/>
           <Footer />
         </div>
       </Router>

@@ -3,47 +3,41 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setPageToView } from '../actions';
 
+const Pages = [
+  {
+    icon: 'list',
+    route: '/todolist'},
+  {
+    icon: 'calendar-plus-o',
+    route: '/add_todo'},
+  {
+    icon: 'calendar',
+    route: '/home'},
+  {
+    icon: 'cog',
+    route: '/settings'},
+  {
+    icon: 'info-circle',
+    route: '/about'},
+];
+
+
 const Footer = ({page, setPageToView}) => (
   <div className="container-fluid">
     <div className="row">
       <div className="col-12 bg-primary footer">
         <div className="row font-px-24">
-          <Link className="col none-decoration px-0" to="/todolist">
-            <div
-              className={page === '/todolist' ?
-                'py-2 text-center active-tab' :
-                'py-2 text-center'}
-                 onClick={event => {setPageToView('/todolist'); return}}
-                ><span className="text-light fa fa-list"></span>
-            </div>
-          </Link>
-          <Link className="col none-decoration px-0" to="/home">
-            <div
-              className={page === '/home' ?
-                'py-2 text-center active-tab' :
-                'py-2 text-center'}
-                 onClick={event => {setPageToView('/home');}}
-              ><span className="text-light fa fa-calendar"></span>
-            </div>
-          </Link>
-          <Link className="col none-decoration px-0" to="/add_todo">
-            <div
-              className={page === '/add_todo' ?
-                'py-2 text-center active-tab' :
-                'py-2 text-center'}
-                 onClick={event => {setPageToView('/add_todo');}}
-                ><span className="text-light fa fa-calendar-plus-o"></span>
-            </div>
-          </Link>
-          <Link className="col none-decoration px-0" to="/settings">
-            <div
-              className={page === '/settings' ?
-                'py-2 text-center active-tab' :
-                'py-2 text-center'}
-                 onClick={event => {setPageToView('/settings');}}
-                ><span className="text-light fa fa-cog"></span>
-            </div>
-          </Link>
+          {Pages.map(pg =>(
+            <Link className="col none-decoration px-0" to={pg.route}>
+              <div
+                className={page === pg.route ?
+                  'py-2 text-center active-tab' :
+                  'py-2 text-center'}
+                   onClick={event => {setPageToView(pg.route); return}}
+                  ><span className={`text-light fa fa-${pg.icon}`}></span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
