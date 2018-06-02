@@ -9,6 +9,8 @@ export const SET_PAGE = 'SET_PAGE';
 export const SET_DATE = 'SET_DATE';
 export const SET_COUNT = 'SET_COUNT';
 export const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
+export const SET_PASSWORD = 'SET_PASSWORD';
+export const LOGIN = 'LOGIN';
 
 export const addTodo = payload => ({
   type: ADD_TODO,
@@ -49,4 +51,14 @@ export const setCount = count => ({
 export const changeLanguage = lang => ({
   type: SWITCH_LANGUAGE,
   lang
+})
+
+export const setPassword = password => ({
+  type: SET_PASSWORD,
+  password
+});
+
+export const login = is_logged_in => ({
+  type: LOGIN,
+  is_logged_in
 })

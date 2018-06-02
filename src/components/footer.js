@@ -27,8 +27,8 @@ const Footer = ({page, setPageToView}) => (
     <div className="row">
       <div className="col-12 bg-primary footer">
         <div className="row font-px-24">
-          {Pages.map(pg =>(
-            <Link className="col none-decoration px-0" to={pg.route}>
+          {Pages.map((pg, index) =>(
+            <Link className="col none-decoration px-0" to={pg.route} key={index}>
               <div
                 className={page === pg.route ?
                   'py-2 text-center active-tab' :

@@ -5,6 +5,8 @@ import visibilityFilter from './visibilityFilter';
 import todos from './todos';
 import currentDate from './currentDate';
 import language from './language';
+import password from './password';
+import is_logged_in from './authorization';
 
 export default combineReducers({
   language,
@@ -12,5 +14,7 @@ export default combineReducers({
   count,
   visibilityFilter,
   todos,
-  currentDate
+  currentDate,
+  password,
+  is_logged_in
 });
