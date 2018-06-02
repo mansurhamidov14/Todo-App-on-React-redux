@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo, removeTodo } from '../actions';
+import { toggleTodo } from '../actions';
 import DailyTodoList from './DailyTodoList';
 
 const getDailyTodos = (todos, date) => {

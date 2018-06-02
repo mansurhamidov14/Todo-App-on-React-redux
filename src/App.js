@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import VisibleTodoList from './components/VisibleTodoList';
 import DailyTodosPage from './views/DailyTodosPage';
 import AddTodo from './views/AddTodo';
 import Todolist from './views/TodoList';

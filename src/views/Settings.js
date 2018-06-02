@@ -9,16 +9,16 @@ const Settings = ({language, changeLanguage}) => (
     <div className="row">
       <div className="col-12 mt-3">
         <div className="list-group">
-          <a href="#"
+          <a 
             className="list-group-item list-group-item-action active h5"
             onClick={event => {event.preventDefault()}}>
             <span className="fa fa-language mr-3"></span>
             <span>{strings[language]['language_selection']}</span>
           </a>
           {languages.map(lang =>(
-            <a href="#"
+            <a
               className="list-group-item list-group-item-action"
-              onClick={event => {event.preventDefault(); changeLanguage(lang); }}><img className="img-reponsive mr-3" src={`icons/${lang}.png`}/>{strings[lang]['language']}
+              onClick={event => {event.preventDefault(); changeLanguage(lang); }}><img className="img-reponsive mr-3" src={`icons/${lang}.png`} alt=""/>{strings[lang]['language']}
               <span className={language === lang ? "language-checked fa fa-check-square text-primary" : ""}></span>
               </a>
           ))}

@@ -23,7 +23,7 @@ const strings = {
     empty_result: 'Filtr üzrə heçnə tapılmadı',
     title: 'Başlıq',
     date: 'Tarix',
-    add_todo: 'Əlavə et',
+    add: 'Əlavə et',
     todo_added: 'Görüləcək iş müvəffəqiyyətlə əlavə olundu!',
     summary: 'cəmi'
   },
@@ -51,7 +51,7 @@ const strings = {
     empty_result: 'Nothing was found',
     title: 'Title',
     date: 'Date',
-    add_todo: 'Add todo',
+    add: 'Add todo',
     todo_added: 'Todo was added successfully',
     summary: 'total'
   },
@@ -79,7 +79,7 @@ const strings = {
     empty_result: 'По фильтру ничего не найдено',
     title: 'Заголовок',
     date: 'Дата',
-    add_todo: 'Добавить задачу',
+    add: 'Добавить задачу',
     todo_added: 'Задача успешно добавлена',
     summary: 'всего'
   }

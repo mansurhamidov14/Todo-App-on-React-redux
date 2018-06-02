@@ -38,7 +38,7 @@ class TodoList extends Component {
   }
 
   render() {
-    let {todos, onTodoClick, todoId, onDeleteClick, removeTodoonShowMore, onFilterChange, visibilityFilter, count, language} = this.props;
+    let {todos, onTodoClick, visibilityFilter, language} = this.props;
     return (
       <div className="row">
         <div className="col-12 mt-3">

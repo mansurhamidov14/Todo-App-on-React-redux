@@ -29,7 +29,7 @@ class DailyTodoList extends Component {
   }
 
   render() {
-    let {todos, onTodoClick, todoId, onDeleteClick, removeTodo, language} = this.props;
+    let {todos, onTodoClick, language} = this.props;
     return (
       <div className="row">
         <div className="col-12">
