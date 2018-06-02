@@ -43,7 +43,7 @@ class TodoList extends Component {
       <div className="row">
         <div className="col-12 mt-3">
           <div className="form-group text-center">
-            <label htmlFor="filter"><span className="badge badge-primary px-5 font-px-18 font-weight-normal">Filtr seçin</span></label>
+            <label htmlFor="filter"><span className="badge badge-primary px-5 font-px-18 font-weight-normal">{strings[language]['choose_filter']}</span></label>
             <select id="inputState" className="form-control" value={visibilityFilter} onChange={this.changeFilter.bind(this)}>
               <option value="SHOW_ALL">{strings[language]['show_all']}</option>
               <option value="SHOW_COMPLETED">{strings[language]['show_completed']}</option>
@@ -53,7 +53,7 @@ class TodoList extends Component {
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
-                <th colSpan="2">{strings[language]['list']}</th>
+                <th colSpan="2">{strings[language]['list']}&nbsp;<span>{todos.length ? `(${strings[language]['summary']}: ${todos.length})` : ``}</span></th>
               </tr>
             </thead>
             <tbody>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeLanguage } from '../actions';
 import strings from '../translates/strings';
 
+const languages = ['az', 'en', 'ru'];
 const Settings = ({language, changeLanguage}) => (
   <div className="container-fluid rendered-component bg-light">
     <div className="row">
@@ -14,21 +15,13 @@ const Settings = ({language, changeLanguage}) => (
             <span className="fa fa-language mr-3"></span>
             <span>{strings[language]['language_selection']}</span>
           </a>
-          <a href="#"
-            className="list-group-item list-group-item-action"
-            onClick={event => {event.preventDefault(); changeLanguage('az');}}>Azərbaycan dili
-            <span className={language === 'az' ? "language-checked fa fa-check-square text-primary" : ""}></span>
-            </a>
-          <a href="#"
-            className="list-group-item list-group-item-action"
-            onClick={event => {event.preventDefault(); changeLanguage('en');}}>English
-            <span className={language === 'en' ? "language-checked fa fa-check-square text-primary" : ""}></span>
-            </a>
-          <a href="#"
-            className="list-group-item list-group-item-action"
-            onClick={event => {event.preventDefault(); changeLanguage('ru');}}>Русский язык
-            <span className={language === 'ru' ? "language-checked fa fa-check-square text-primary" : ""}></span>
-            </a>
+          {languages.map(lang =>(
+            <a href="#"
+              className="list-group-item list-group-item-action"
+              onClick={event => {event.preventDefault(); changeLanguage(lang); }}><img className="img-reponsive mr-3" src={`icons/${lang}.png`}/>{strings[lang]['language']}
+              <span className={language === lang ? "language-checked fa fa-check-square text-primary" : ""}></span>
+              </a>
+          ))}
         </div>
       </div>
     </div>

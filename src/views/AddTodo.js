@@ -24,20 +24,20 @@ class AddTodo extends Component {
             <div className="form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">{strings[language]['title']}</div>
+                  <div className="input-group-text px-w-90">{strings[language]['title']}:</div>
                 </div>
                 <input
                     type="text"
                     className="form-control"
                     id="shooting-position-x"
-                    placeholder="Başlıq"
+                    placeholder={strings[language]['title']}
                     ref={node => this.text = node}/>
               </div>
             </div>
             <div className="form-group">
               <div className="input-group date" data-provide="datepicker">
                 <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">{strings[language]['date']}</div>
+                  <div className="input-group-text px-w-90">{strings[language]['date']}:</div>
                 </div>
                 <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder={strings[language]['date']}/>
                 <div className="input-group-append">

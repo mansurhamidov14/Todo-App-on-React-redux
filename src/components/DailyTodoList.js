@@ -36,7 +36,7 @@ class DailyTodoList extends Component {
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
-                <th colSpan="2">{strings[language]['todos']}</th>
+                <th colSpan="2">{strings[language]['todos']}&nbsp;<span>{todos.length ? `(${strings[language]['summary']}: ${todos.length})` : ``}</span></th>
               </tr>
             </thead>
             <tbody>

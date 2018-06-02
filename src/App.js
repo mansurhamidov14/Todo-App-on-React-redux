@@ -15,6 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <input type="hidden" defaultValue={language} id="currentLanguage"/>
           <div className="container-fluid">
             <div className="row">
               <div className="col-12 bg-primary header">

@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { setShownDate } from '../actions';
 import strings from '../translates/strings';
 
-const CurrentDate = ({currentDate, setShownDate}) => {
+const CurrentDate = ({currentDate, setShownDate, language}) => {
   let currentShownDate = new Date(currentDate);
   let year = currentShownDate.getFullYear();
-  let month = strings['az']['months'][currentShownDate.getMonth()];
+  let month = strings[language]['months'][currentShownDate.getMonth()];
   let date = currentShownDate.getDate();
-  let weekday = strings['az']['week_days'][currentShownDate.getDay()];
+  let weekday = strings[language]['week_days'][currentShownDate.getDay()];
   return (
     <div className="row bg-light-grey mx-0">
       <div className="col-2 text-left font-px-24 mt-3">
@@ -26,7 +26,8 @@ const CurrentDate = ({currentDate, setShownDate}) => {
 }
 
 const mapStateToProps = state => ({
-  currentDate: state.currentDate
+  currentDate: state.currentDate,
+  language: state.language
 });
 
 const mapDispatchToProps = dispatch => ({
