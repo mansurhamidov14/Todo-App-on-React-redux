@@ -28,11 +28,18 @@ const strings = {
     todo_added: 'Görüləcək iş müvəffəqiyyətlə əlavə olundu!',
     summary: 'cəmi',
     set_password: 'Şifrə təyin et',
+    unset_password: 'Şifrənin sil',
     change_password: 'Şifrəni dəyişmək',
     new_password: 'Yeni şifrə',
+    your_password: 'Şifrəniz',
     repeat_password: 'Şifrənin təkrarı',
     password_added_success: 'Şifrə uğurla təyin olundu!',
-    password_added_fail: 'Xəta! Şifrə çox qısadır və yaxud şifrələr uyğun gəlmir.'
+    password_unset_success: 'Şifrə uğurla silindi!',
+    password_added_fail: 'Xəta! Şifrə çox qısadır və yaxud şifrələr uyğun gəlmir.',
+    invalid_password: 'Şifrə düzgün daxil edilməyib!',
+    valid_password: 'Şifrə düzgün daxil edilib!',
+    login_blocked: 'Giriş etmək üçün şifrənizi daxil edin.',
+    login: 'Daxil ol'
   },
   en: {
     language: 'English',
@@ -63,11 +70,18 @@ const strings = {
     todo_added: 'Todo was added successfully',
     summary: 'total',
     set_password: 'Set password',
+    unset_password: 'Unset password',
     change_password: 'Change password',
     new_password: 'New password',
+    your_password: 'Your password',
     repeat_password: 'Repeat password',
+    invalid_password: 'Incorrect password!',
+    valid_password: 'Correct password!',
     password_added_success: 'Password was set successfully!',
-    password_added_fail: 'Error! Either password is too short or passwords are not same.'
+    password_unset_success: 'Password was unset successfully!',
+    password_added_fail: 'Error! Either password is too short or passwords are not same.',
+    login_blocked: 'Enter password in order to countinue.',
+    login: 'Login'
   },
   ru: {
     language: 'Русский язык',
@@ -98,11 +112,18 @@ const strings = {
     todo_added: 'Задача успешно добавлена',
     summary: 'всего',
     set_password: 'Установить пароль',
+    unset_password: 'Удалить пароль',
     change_password: 'Изменить пароль',
     new_password: 'Новый пароль',
     repeat_password: 'Подтверждение пароля',
+    your_password: 'Ваш пароль',
+    invalid_password: 'Неверный пароль!',
+    valid_password: 'Верный пароль!',
     password_added_success: 'Пароль успешно установлен!',
-    password_added_fail: 'Ошибка! Пароль либо очень короткий либо пароли не совпадают.'
+    password_unset_success: 'Пароль успешно удален!',
+    password_added_fail: 'Ошибка! Пароль либо очень короткий либо пароли не совпадают.',
+    login_blocked: 'Вход заблокирован. Введите пароль, чтобы продолжить',
+    login: 'Войти'
   }
 }
 

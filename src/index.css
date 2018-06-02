@@ -27,6 +27,7 @@
   bottom:0;
   left:0;
   heigth: 52px;
+  z-index:100;
 }
 .font-px-13 {
   font-size:13px;
@@ -65,4 +66,14 @@
 }
 .fa-instagram {
   color:#A22AA2;
+}
+.login-page {
+  position:fixed;
+  top:70px;
+  height:calc(100% - 120px);
+  z-index:32;
+  overflow: hidden;
+}
+.login-alert {
+  white-space: pre-wrap;
 }

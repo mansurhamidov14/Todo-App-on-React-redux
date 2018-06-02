@@ -31,8 +31,15 @@ class Settings extends Component {
       })
     }
   }
+  unsetPassword () {
+    this.setState({
+      success_status: 'success',
+      success_message: strings[this.props.language]['password_unset_success']
+    });
+    this.props.setPassword(null);
+  }
   render () {
-    let {language, changeLanguage, password, setPassword, login} = this.props;
+    let {language, changeLanguage, password} = this.props;
     return (
       <div className="container-fluid rendered-component bg-light">
         <div className="row">
@@ -63,7 +70,7 @@ class Settings extends Component {
               <div className={`alert alert-${this.state.success_status} text-center mt-3`} id="addSuccess" role="alert">
                 {this.state.success_message}
               </div>
-              <div className="form-group mt-4">
+              <div className="form-group mt-3">
                 <div className="input-group">
                   <input
                       type="password"
@@ -83,6 +90,7 @@ class Settings extends Component {
                 </div>
               </div>
               <button type="button" className="btn btn-success w-100" id="confirm" onClick={this.changePassword.bind(this)}>{password === null ? strings[language]['set_password'] : strings[language]['change_password']}</button>
+              <button type="button" className="btn btn-danger w-100 mt-3 mb-3" id="unset" onClick={this.unsetPassword.bind(this)}>{strings[language]['unset_password']}</button>
             </div>
           </div>
         </div>
