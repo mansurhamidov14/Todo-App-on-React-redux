@@ -37,7 +37,7 @@ class Login extends Component {
         <div className="container-fluid rendered-component bg-light login-page">
           <div className="row">
             <div className="col-12 mt-3">
-              <p className="font-px-24"><span className="badge badge-danger login-alert px-3 py-4 text-light"><i className="fa fa-lock font-px-24">&nbsp;</i><br/>{strings[language]['login_blocked']}</span></p>
+              <p className="font-px-24"><span className="badge badge-danger login-alert px-3 py-4 text-light w-100"><i className="fa fa-lock font-px-24">&nbsp;</i><br/>{strings[language]['login_blocked']}</span></p>
               <div className={`alert alert-${this.state.success_status} text-center mt-3`} id="addSuccess" role="alert">
                 {this.state.success_message}
               </div>

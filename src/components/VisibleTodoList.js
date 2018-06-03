@@ -5,11 +5,11 @@ import TodoList from './TodoList';
 const getVisibleTodos = (todos, filter, count) => {
   switch (filter) {
     case SHOW_ALL:
-      return todos.slice(0, parseInt(count, 10)).sort((a, b) => b.date - a.date);
+      return todos.sort((a, b) => b.date - a.date).slice(0, parseInt(count, 10));
     case SHOW_COMPLETED:
-      return todos.filter(t => t.completed).slice(0, parseInt(count, 10)).sort((a, b) => b.date - a.date);
+      return todos.filter(t => t.completed).sort((a, b) => b.date - a.date).slice(0, parseInt(count, 10));
     case SHOW_ACTIVE:
-      return todos.filter(t => !t.completed).slice(0, parseInt(count, 10)).sort((a, b) => b.date - a.date);
+      return todos.filter(t => !t.completed).sort((a, b) => b.date - a.date).slice(0, parseInt(count, 10));
     default:
       throw new Error('Unknown filter: ' + filter)
   }
