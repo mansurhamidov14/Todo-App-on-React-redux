@@ -51,6 +51,7 @@
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
     <script>
       $.fn.datepicker.defaults.autoclose = true;
+      $.fn.datepicker.defaults.format = 'dd/mm/yyyy';
       $(document).ready(function () {
         $.fn.datepicker.defaults.language = $('#currentLanguage').val();
         $('.datepicker').datepicker({

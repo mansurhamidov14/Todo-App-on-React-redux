@@ -5,7 +5,9 @@ import strings from '../translates/strings';
 
 class AddTodo extends Component {
   submitForm () {
-    let date = new Date(this.date.value);
+    let fullDate = this.date.value.split('/');
+    console.log(fullDate);
+    let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
     date = date.getTime();
     this.props.dispatch(addTodo({text: this.text.value, date}));
     this.text.value = null;
