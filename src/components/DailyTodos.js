@@ -3,6 +3,8 @@ import { toggleTodo } from '../actions';
 import DailyTodoList from './DailyTodoList';
 
 const getDailyTodos = (todos, date) => {
+  console.log(date);
+  console.log(todos);
   return todos.filter(t => t.date === date);
 }
 

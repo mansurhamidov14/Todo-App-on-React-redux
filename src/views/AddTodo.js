@@ -6,7 +6,7 @@ import strings from '../translates/strings';
 class AddTodo extends Component {
   submitForm () {
 
-    this.props.dispatch(addTodo({text: this.text.value, date:this.date.value}));
+    this.props.dispatch(addTodo({text: this.text.value, date:parseInt(this.date.value, 10)}));
     this.text.value = null;
     this.date.value = "";
   }

@@ -4,22 +4,16 @@ import { setShownDate } from '../actions';
 import strings from '../translates/strings';
 
 const CurrentDate = ({currentDate, setShownDate, language}) => {
-  let currentShownDate = new Date(currentDate);
-  let year = currentShownDate.getFullYear();
-  let month = strings[language]['months'][currentShownDate.getMonth()];
-  let date = currentShownDate.getDate();
-  let weekday = strings[language]['week_days'][currentShownDate.getDay()];
   return (
     <div className="row bg-light-grey mx-0">
-      <div className="col-2 text-left font-px-24 mt-3">
-        <a className="text-secondary fa fa-chevron-left none-decoration" onClick={event => {event.preventDefault(); setShownDate(parseInt(currentDate, 10) - 86400000)}}>&nbsp;</a>
+      <div className="col-2 text-left font-px-24 mt-2">
+        <a className="text-secondary fa fa-chevron-left none-decoration" onClick={event => {event.preventDefault(); setShownDate(currentDate == 0 ? 6 : currentDate - 1)}}>&nbsp;</a>
       </div>
       <div className="col-8 text-center">
-        <h5 className="mt-2 mb-0">{date} {month} {year}</h5>
-        <p className="text-secondary font-px-18">{weekday}</p>
+        <h5 className="mt-3">{strings[language]['week_days'][currentDate]}</h5>
       </div>
-      <div className="col-2 text-right font-px-24 mt-3">
-        <a className="text-secondary fa fa-chevron-right none-decoration" onClick={event => {event.preventDefault(); setShownDate(parseInt(currentDate, 10) + 86400000)}}>&nbsp;</a>
+      <div className="col-2 text-right font-px-24 mt-2">
+        <a className="text-secondary fa fa-chevron-right none-decoration" onClick={event => {event.preventDefault(); setShownDate(currentDate == 6 ? 0 : currentDate + 1)}}>&nbsp;</a>
       </div>
     </div>
   );
