@@ -6,7 +6,7 @@ import { setPageToView } from '../actions';
 const Pages = [
   {
     icon: 'list',
-    route: '/todolist'},
+    route: '/weekdayslist'},
   {
     icon: 'calendar-plus-o',
     route: '/add_todo'},

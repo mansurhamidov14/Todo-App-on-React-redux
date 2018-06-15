@@ -1,12 +1,10 @@
 import React from 'react';
-import TodoList from '../components/VisibleTodoList';
+import DaysList from '../components/DaysList';
 
 const Todolist = () => (
   <div className="container-fluid rendered-component bg-light">
     <div className="row">
-      <div className="col-12">
-        <TodoList />
-      </div>
+        <DaysList/>
     </div>
   </div>
 );

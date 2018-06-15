@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DailyTodosPage from './views/DailyTodosPage';
 import AddTodo from './views/AddTodo';
-import Todolist from './views/TodoList';
+import WeekDaysList from './views/WeekDaysList';
 import Settings from './views/Settings';
 import About from './views/About';
 import Login from './views/Login';
@@ -25,10 +25,10 @@ class App extends Component {
             </div>
           </div>
           <Login/>
-          <Route exact path="/" component={DailyTodosPage}/>
+          <Route exact path="/" component={WeekDaysList}/>
           <Route path="/home" component={DailyTodosPage}/>
           <Route path="/add_todo" component={AddTodo}/>
-          <Route path="/todolist" component={Todolist}/>
+          <Route path="/weekdayslist" component={WeekDaysList}/>
           <Route path="/settings" component={Settings}/>
           <Route path="/about" component={About}/>
           <Footer />
