@@ -5,7 +5,7 @@ const initialState = [];
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [...state, {...action.payload, completed:false, id: state.length === 0 ? 1 : state[state.length - 1].id + 1}];
+      return [...state, {...action.payload, completed:null, id: state.length === 0 ? 1 : state[state.length - 1].id + 1}];
     case REMOVE_TODO:
       let index = state.indexOf(...state.filter(t => t.id === action.id))
       return [

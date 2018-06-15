@@ -24,6 +24,8 @@ const strings = {
     empty_result: 'Filtr üzrə heçnə tapılmadı',
     title: 'Başlıq',
     date: 'Tarix',
+    day_of_week: 'Gün',
+    choose_day_of_week: 'Gün seçin',
     add: 'Əlavə et',
     todo_added: 'Görüləcək iş müvəffəqiyyətlə əlavə olundu!',
     summary: 'cəmi',
