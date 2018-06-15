@@ -8,7 +8,6 @@ const month = today.getMonth();
 const year = today.getFullYear();
 const todayDate = new Date(year, month, dayOfMonth, 0, 0, 0, 0).getTime();
 const setDateToToggle = (todayDate, todoDay) => todayDate + 86400000 * (todoDay - dayOfWeek);
-
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
