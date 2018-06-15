@@ -10,7 +10,6 @@ class TodoList extends Component {
     this.state = {
       deleteId: null
     }
-    console.log(this.props.visibiltyFilter);
   }
 
   cancelDelete () {

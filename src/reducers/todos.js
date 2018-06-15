@@ -1,6 +1,13 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../actions';
 
 const initialState = [];
+const today = new Date();
+const dayOfWeek = today.getDay();
+const dayOfMonth = today.getDate();
+const month = today.getMonth();
+const year = today.getFullYear();
+const todayDate = new Date(year, month, dayOfMonth, 0, 0, 0, 0).getTime();
+const setDateToToggle = (todayDate, todoDay) => todayDate + 86400000 * (todoDay - dayOfWeek);
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
@@ -13,7 +20,8 @@ const todos = (state = initialState, action) => {
       ...state.slice(index + 1)
     ];
     case TOGGLE_TODO:
-      return state.map(todo => todo.id === action.id ? {...todo, completed: !todo.completed} : {...todo, completed: todo.completed});
+      console.log(action.payload);
+      return state.map(todo => todo.id === action.payload.id ? {...todo, completed: todo.completed !== setDateToToggle(todayDate, action.payload.weekDay) ? setDateToToggle(todayDate, action.payload.weekDay) : null} : {...todo, completed: todo.completed});
     default:
       return state;
   }

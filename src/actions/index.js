@@ -22,10 +22,13 @@ export const removeTodo = id => ({
   id: parseInt(id, 10)
 });
 
-export const toggleTodo = id => ({
+export const toggleTodo = (id, weekDay) => {return {
   type: TOGGLE_TODO,
-  id: parseInt(id, 10)
-});
+  payload: {
+    id: parseInt(id, 10),
+    weekDay
+  }
+}};
 
 export const setVisibilityFilter = filter => ({
   type: SET_VISIBILITY_FILTER,
