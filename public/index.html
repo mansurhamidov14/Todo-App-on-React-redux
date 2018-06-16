@@ -42,12 +42,24 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script type="text/javascript" src="%PUBLIC_URL%/jquery.min.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/slide-menu.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/popper.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap.bundle.min.js"></script>
     <script>
       $(document).on('click', '#confirm, #unset', function() {
         $('#addSuccess').fadeIn(500).fadeOut(2000);
+      })
+      $(document).ready(function () {
+        var menu = $('#my-menu').slideMenu({
+          position:'left'
+        });
+        $('#toggle-menu').on('click', function() {
+          menu.toggle();
+        });
+        $('.page-link').on('click', function() {
+          menu.close();
+        })
       })
     </script>
   </body>

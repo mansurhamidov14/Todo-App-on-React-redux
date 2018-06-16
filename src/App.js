@@ -7,8 +7,8 @@ import WeekDaysList from './views/WeekDaysList';
 import Settings from './views/Settings';
 import About from './views/About';
 import Login from './views/Login';
-import Footer from './components/footer';
-import strings from './translates/strings';
+
+import Menu from './components/Menu';
 
 class App extends Component {
   render() {
@@ -16,11 +16,14 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Menu language={language} page={page}/>
           <input type="hidden" defaultValue={language} id="currentLanguage"/>
           <div className="container-fluid">
             <div className="row">
               <div className="col-12 bg-primary header">
-                <h3 className="text-center text-center my-3 text-light">{strings[language][page.slice(1)]}</h3>
+                <button id="toggle-menu" className="btn btn-primary mt-3">
+                  <span className="fa fa-bars font-px-30"></span>
+                </button>
               </div>
             </div>
           </div>
@@ -31,7 +34,6 @@ class App extends Component {
           <Route path="/weekdayslist" component={WeekDaysList}/>
           <Route path="/settings" component={Settings}/>
           <Route path="/about" component={About}/>
-          <Footer />
         </div>
       </Router>
     );

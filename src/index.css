@@ -17,7 +17,6 @@
 .rendered-component {
   position:relative;
   top:70px;
-  margin-bottom:52px;
 }
 .bg-light-grey {
   background: #eaeaea;
@@ -34,6 +33,9 @@
 }
 .font-px-18 {
   font-size:18px;
+}
+.font-px-30 {
+  font-size:30px;
 }
 .font-px-24 {
   font-size:24px;
@@ -76,4 +78,76 @@
 }
 .login-alert {
   white-space: pre-wrap;
+}
+
+/*slidingMenu*/
+.dropdown-item:active {
+  background:#007bff;
+}
+
+.slide-menu {
+  position: fixed;
+  width: 280px;
+  max-width: 100%;
+  height: 100vh;
+  top: 70px;
+  right: 0;
+  display: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: rgba(10, 10, 10, 0.85);
+  /* -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px); */
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  will-change: transform;
+  z-index: 15;
+}
+
+.slide-menu .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  will-change: transform;
+}
+
+.slide-menu ul {
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+  width: 320px;
+  max-width: 100%;
+  margin: 0;
+}
+.slide-menu ul ul {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+}
+.slide-menu.no-transition, .slide-menu.no-transition * {
+  transition: none !important;
+}
+.btn-primary:hover {
+  background:#007BFF;
+  border:#007BFF;
+}
+.list-group-item-custom,.list-group-item-custom:hover {
+  background: transparent;
+  color: #fff;
+}
+.list-group-item-custom.active, .list-group-item-custom:active, .list-group-item-custom:active {
+  background:rgba(0,123,255,0.4)
 }

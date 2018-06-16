@@ -38,8 +38,7 @@ class AddTodo extends Component {
                 <div className="input-group-prepend">
                   <div className="input-group-text px-w-90">{strings[language]['day_of_week']}:</div>
                 </div>
-                <select ref={node => this.date = node} className="form-control" >
-                  <option value="">{strings[language]['day_of_week']}</option>
+                <select ref={node => this.date = node} className="form-control" defaultValue={new Date().getDay()}>
                   {
                     [1, 2, 3, 4, 5, 6, 0].map(i => <option key={i} value={i}>{strings[language]['week_days'][i]}</option>)
                   }
