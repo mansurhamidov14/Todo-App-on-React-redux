@@ -5,6 +5,7 @@ import todos from './todos';
 import currentDate from './currentDate';
 import language from './language';
 import password from './password';
+import categories from './categories';
 import is_logged_in from './authorization';
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   todos,
   currentDate,
   password,
+  categories,
   is_logged_in
 });

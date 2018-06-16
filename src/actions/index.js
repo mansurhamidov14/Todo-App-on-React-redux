@@ -7,9 +7,15 @@ export const SET_COUNT = 'SET_COUNT';
 export const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
 export const SET_PASSWORD = 'SET_PASSWORD';
 export const LOGIN = 'LOGIN';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
 
 export const addTodo = payload => ({
   type: ADD_TODO,
+  payload
+});
+
+export const addCategory = payload => ({
+  type: ADD_CATEGORY,
   payload
 });
 
