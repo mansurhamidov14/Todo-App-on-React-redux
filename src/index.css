@@ -2,7 +2,7 @@
   position:fixed;
   top:0;
   left:0;
-  height:70px;
+  height:60px;
   z-index: 200;
 }
 .px-w-60 {
@@ -16,7 +16,7 @@
 }
 .rendered-component {
   position:relative;
-  top:70px;
+  top:60px;
 }
 .bg-light-grey {
   background: #eaeaea;
@@ -71,7 +71,7 @@
 }
 .login-page {
   position:fixed;
-  top:70px;
+  top:60px;
   height:calc(100% - 120px);
   z-index:32;
   overflow: hidden;
@@ -90,7 +90,7 @@
   width: 280px;
   max-width: 100%;
   height: 100vh;
-  top: 70px;
+  top: 60px;
   right: 0;
   display: none;
   overflow: hidden;

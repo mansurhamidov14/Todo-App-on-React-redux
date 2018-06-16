@@ -8,6 +8,9 @@ export const SWITCH_LANGUAGE = 'SWITCH_LANGUAGE';
 export const SET_PASSWORD = 'SET_PASSWORD';
 export const LOGIN = 'LOGIN';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const REMOVE_CATEGORY = 'REMOVE_CATEGORY';
+export const ADD_EXPENSE = 'ADD_EXPENSE'
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE'
 
 export const addTodo = payload => ({
   type: ADD_TODO,
@@ -19,8 +22,18 @@ export const addCategory = payload => ({
   payload
 });
 
+export const addExpense = payload => ({
+  type: ADD_EXPENSE,
+  payload
+});
+
 export const removeTodo = id => ({
   type: REMOVE_TODO,
+  id: parseInt(id, 10)
+});
+
+export const removeExpense = id => ({
+  type: REMOVE_EXPENSE,
   id: parseInt(id, 10)
 });
 

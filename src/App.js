@@ -3,6 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import DailyTodosPage from './views/DailyTodosPage';
 import AddTodo from './views/AddTodo';
+import AddExpense from './views/AddExpense';
 import WeekDaysList from './views/WeekDaysList';
 import Settings from './views/Settings';
 import About from './views/About';
@@ -21,7 +22,7 @@ class App extends Component {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12 bg-primary header">
-                <button id="toggle-menu" className="btn btn-primary mt-3">
+                <button id="toggle-menu" className="btn btn-primary mt-2">
                   <span className="fa fa-bars font-px-30"></span>
                 </button>
               </div>
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path="/home" component={DailyTodosPage}/>
           <Route path="/add_todo" component={AddTodo}/>
           <Route path="/weekdayslist" component={WeekDaysList}/>
+          <Route path="/add_expense" component={AddExpense}/>
           <Route path="/settings" component={Settings}/>
           <Route path="/about" component={About}/>
         </div>

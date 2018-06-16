@@ -15,11 +15,14 @@ const Pages = [
     icon: 'calendar',
     route: '/home'},
   {
+    icon: 'cart-plus',
+    route: '/add_expense'},
+  {
     icon: 'cog',
     route: '/settings'},
   {
     icon: 'info-circle',
-    route: '/about'},
+    route: '/about'}
 ];
 
 
