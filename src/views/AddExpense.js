@@ -9,9 +9,12 @@ class AddExpense extends Component {
     console.log(fullDate);
     let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
     date = date.getTime();
-    this.props.dispatch(addExpense({text: this.text.value, date}));
+    let amount = parseInt(this.manat.value, 10) + parseInt(this.coins.value, 10)/100;
+    this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
     this.text.value = null;
     this.date.value = null;
+    this.manat.value = `0`;
+    this.coins.value = `00`;
   }
 
   render () {
@@ -38,13 +41,35 @@ class AddExpense extends Component {
             <div className="form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <div className="input-group-text">{strings[language]['category']}:</div>
+                  <div className="input-group-text px-w-90">{strings[language]['category']}:</div>
                 </div>
-                <select ref={node => this.date = node} className="form-control">
-                  <option value="">{strings[language]['choose_category']}</option>
+                <select ref={node => this.category = node} className="form-control" defaultValue={60}>
                   {
                     categories.map(category => <option key={category.id} value={category.id}>{category[`title_${language}`]}</option>)
                   }
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <div className="input-group-text px-w-90">{strings[language]['amount']}</div>
+                </div>
+                <input type="text" className="form-control" ref={node => this.manat = node} placeholder={strings[language]['manat']}/>
+                <input type="text" className="form-control" ref={node => this.coins = node} placeholder={strings[language]['penny']}/>
+                <div className="input-group-append">
+                  <div className="input-group-text">AZN</div>
+                </div>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <div className="input-group-text px-w-90">{strings[language]['type']}:</div>
+                </div>
+                <select ref={node => this.type = node} className="form-control">
+                  <option value={0}>{strings[language]['expense']}</option>
+                  <option value={1}>{strings[language]['earning']}</option>
                 </select>
               </div>
             </div>

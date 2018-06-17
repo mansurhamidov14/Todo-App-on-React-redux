@@ -147,7 +147,9 @@
 .list-group-item-custom,.list-group-item-custom:hover {
   background: transparent;
   color: #fff;
+  border-width:0;
 }
 .list-group-item-custom.active, .list-group-item-custom:active, .list-group-item-custom:active {
-  background:rgba(0,123,255,0.4)
+  background:rgba(0,123,255,0.4);
+  border-color:#007BFF;
 }

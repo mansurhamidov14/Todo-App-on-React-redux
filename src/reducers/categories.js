@@ -42,19 +42,19 @@ const initialState = [
     readonly: true
   },
   {
-    id: 6,
+    id: 60,
     icon: 'credit-card',
     title_az: 'Digər',
     title_en: 'Others',
     title_ru: 'Другие',
-    readonly: false
+    readonly: true
   }
 ];
 
 const categories = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CATEGORY:
-      return [...state, {id: state[state.length - 1].id + 1, ...action.payload, readonly:false}];
+      return [...state, {id: state[state.length - 2].id + 1, ...action.payload, readonly:false}];
     default:
       return state;
   }
