@@ -89,11 +89,10 @@
   position: fixed;
   width: 280px;
   max-width: 100%;
-  height: 100vh;
+  min-height: calc(100vh - 60px);
   top: 60px;
   right: 0;
   display: none;
-  overflow: hidden;
   box-sizing: border-box;
   background: rgba(10, 10, 10, 0.85);
   /* -webkit-filter: blur(5px);
@@ -109,7 +108,6 @@
   will-change: transform;
   z-index: 15;
 }
-
 .slide-menu .slider {
   position: absolute;
   top: 0;
@@ -152,4 +150,12 @@
 .list-group-item-custom.active, .list-group-item-custom:active, .list-group-item-custom:active {
   background:rgba(0,123,255,0.4);
   border-color:#007BFF;
+}
+.list-group-title:active {
+  border-width:0;
+  background: transparent
+}
+.overflow-y {
+  height: calc(100vh - 60px);
+  overflow-y: scroll
 }
