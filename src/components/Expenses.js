@@ -9,6 +9,7 @@ const milliSecondsToDdMmYyyy = milliseconds => {
   let date = newDate.getDate();
   let month = newDate.getMonth();
   let year = newDate.getFullYear();
+  date = `0${date}`.slice(0, 2);
   month = `0${month +1}`.slice(0, 2);
   return `${date}.${month}.${year}`;
 }
@@ -90,12 +91,31 @@ class Expenses extends Component {
             </div>
           </div>
           <div className="form-group">
-            <div className="input-group">
+            <div className="input-group date" data-provide="datepicker">
               <div className="input-group-prepend">
-                <div className="input-group-text px-w-90">{strings[language]['date']}:</div>
+                <div className="input-group-text px-w-90">{strings[language]['from_date']}:</div>
               </div>
-              <input type="text" className="form-control datepicker" ref={node => this.startDate = node} placeholder={strings[language]['fromDate']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.startDate)}/>
-              <input type="text" className="form-control datepicker" ref={node => this.endDate = node} placeholder={strings[language]['toDate']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.endDate)}/>
+              <input type="text" className="date form-control" ref={node => this.startDate = node} placeholder={strings[language]['date']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.startDate)}/>
+              <div className="input-group-append">
+                <div className="input-group-text fa fa-calendar px-w-60"></div>
+              </div>
+              <div className="input-group-addon">
+                  <span className="glyphicon glyphicon-th"></span>
+              </div>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="input-group date" data-provide="datepicker">
+              <div className="input-group-prepend">
+                <div className="input-group-text px-w-90">{strings[language]['to_date']}:</div>
+              </div>
+              <input type="text" className="date form-control" ref={node => this.endDate = node} placeholder={strings[language]['date']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.endDate)}/>
+              <div className="input-group-append">
+                <div className="input-group-text fa fa-calendar px-w-60"></div>
+              </div>
+              <div className="input-group-addon">
+                  <span className="glyphicon glyphicon-th"></span>
+              </div>
             </div>
           </div>
           <button className="btn btn-success w-100 mb-5" onClick={this.applyFilter.bind(this)}>{strings[language]['apply_filter']}</button>
