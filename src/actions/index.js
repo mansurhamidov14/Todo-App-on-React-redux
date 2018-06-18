@@ -74,4 +74,9 @@ export const setPassword = password => ({
 export const login = is_logged_in => ({
   type: LOGIN,
   is_logged_in
+});
+
+export const setExpensesVisibilityFilter = (startDate, endDate) => ({
+  type: 'EXPENSES_VISIBILITY_FILTER',
+  filter: {startDate, endDate}
 })

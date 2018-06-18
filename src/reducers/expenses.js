@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, REMOVE_EXPENSE, TOGGLE_EXPENSE } from '../actions';
+import { ADD_EXPENSE, REMOVE_EXPENSE } from '../actions';
 
 const initialState = [];
 

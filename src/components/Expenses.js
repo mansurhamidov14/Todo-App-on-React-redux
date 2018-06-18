@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import Expense from './Expense';
-import { removeExpense /*, setExpensesVisibilityFilter*/, setPageToView } from '../actions';
+import { removeExpense, setExpensesVisibilityFilter, setPageToView } from '../actions';
 import strings from '../translates/strings';
 
 const milliSecondsToDdMmYyyy = milliseconds => {
@@ -9,7 +9,8 @@ const milliSecondsToDdMmYyyy = milliseconds => {
   let date = newDate.getDate();
   let month = newDate.getMonth();
   let year = newDate.getFullYear();
-  month = `0${month +1}`.slice(1);
+  month = `0${month +1}`.slice(0, 2);
+  console.log(`${date}.${month}.${year}`);
   return `${date}.${month}.${year}`;
 }
 
@@ -19,8 +20,7 @@ class Expenses extends Component {
     this.state = {
       deleteId: null,
       category: this.props.match.params.id,
-      dateBegin: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0, 0).getTime() - 30 * 86400000,
-      dateEnd: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0, 0).getTime()
+      amount: 0
     }
     console.log(this.state);
   }
@@ -41,10 +41,6 @@ class Expenses extends Component {
     this.props.dispatch(removeExpense(this.state.deleteId));
   }
 
-  // changeFilter (event) {
-  //   this.props.dispatch(setExpensesVisibilityFilter(this.state.dateBegin, this.state.dateEnd))
-  // }
-
   changeShownCategory (event) {
     this.setState({
       category: event.target.value
@@ -52,9 +48,25 @@ class Expenses extends Component {
     this.props.dispatch(setPageToView(`/category/${event.target.value}`))
   }
 
+  applyFilter () {
+    let startDate = this.startDate.value.split('.')[0];
+    let startMonth = parseInt(this.startDate.value.split('.')[1], 10) - 1;
+    let startYear = this.startDate.value.split('.')[2];
+    let EndDate = this.endDate.value.split('.')[0];
+    let EndMonth = parseInt(this.endDate.value.split('.')[1], 10) - 1;
+    let EndYear = this.endDate.value.split('.')[2];
+    let dateBegin =  new Date(startYear, startMonth, startDate, 0, 0, 0, 0).getTime();
+    let dateEnd = new Date(EndYear, EndMonth, EndDate, 0, 0, 0, 0).getTime();
+    this.props.dispatch(setExpensesVisibilityFilter(dateBegin, dateEnd));
+    console.log(this.props.expensesVisibilityFilter);
+    this.setState({
+      category: this.shownCategory.value
+    });
+    this.props.dispatch(setPageToView(`/category/${this.shownCategory.value}`))
+  }
 
   render() {
-    let {expenses, beginDate, endDate, language, categories, match} = this.props;
+    let {expenses, expensesVisibilityFilter, language, categories} = this.props;
     return (
       <div className="row">
         <div className="col-12 mt-3">
@@ -64,12 +76,22 @@ class Expenses extends Component {
               <div className="input-group-prepend">
                 <div className="input-group-text px-w-90">{strings[language]['category']}:</div>
               </div>
-              <select id="inputState" className="form-control" value={this.state.cagegory} onChange={this.changeShownCategory.bind(this)}>
+              <select id="inputState" className="form-control" defaultValue={this.state.cagegory} ref={node => this.shownCategory = node}>
                 <option value="all">{strings[language]['all_categories']}</option>
-                {categories.map(category => <option key={category.id} value={`${category.id}`} onChange={this.changeShownCategory.bind(this)}>{category[`title_${language}`]}</option> )}
+                {categories.map(category => <option key={category.id} value={`${category.id}`}>{category[`title_${language}`]}</option> )}
               </select>
             </div>
           </div>
+          <div className="form-group">
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <div className="input-group-text px-w-90">{strings[language]['date']}:</div>
+              </div>
+              <input type="text" className="form-control datepicker" ref={node => this.startDate = node} placeholder={strings[language]['fromDate']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.startDate)}/>
+              <input type="text" className="form-control datepicker" ref={node => this.endDate = node} placeholder={strings[language]['toDate']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.endDate)}/>
+            </div>
+          </div>
+          <button className="btn btn-success w-100 mb-5" onClick={this.applyFilter.bind(this)}>Apply filter</button>
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
@@ -86,8 +108,9 @@ class Expenses extends Component {
                     return <Expense key={expense.id} {...expense} categories={categories} onDeleteClick={this.setItemToDelete.bind(this)}/>
                   }
                 }
+                return <tr key={0}><td colSpan="3" className="text-danger text-center font-px-16">{strings[language]['empty_result']}</td></tr>;
               })}
-              <tr><td colSpan="2" className="text-danger text-center font-px-16">{!expenses.length ? strings[language]['empty_result'] : ''}</td></tr>
+
             </tbody>
           </table>
         </div>

@@ -49,6 +49,8 @@
 .datepicker.dropdown-menu {
   width: calc(100% - 30px);
   font-size: 18px;
+  position:absolute;
+  left: 15px !important;
 }
 .table-condensed {
   width: 100%;
