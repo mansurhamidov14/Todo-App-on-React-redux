@@ -73,7 +73,7 @@ class Expenses extends Component {
   }
 
   render() {
-    let {expenses, expensesVisibilityFilter, language, categories} = this.props;
+    let {expenses, expensesVisibilityFilter, language, categories, balance} = this.props;
     return (
       <div className="row">
         <div className="col-12 mt-3">
@@ -102,14 +102,14 @@ class Expenses extends Component {
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
-                <th colSpan="3">{strings[language]['list']}&nbsp;<span>({strings[language]['summary']}: {expenses.length})</span></th>
+                <th colSpan="3">{strings[language]['balance']}: {balance} AZN</th>
               </tr>
             </thead>
             <tbody>
               {expenses.map(expense => {
                 return <Expense key={expense.id} {...expense} categories={categories} onDeleteClick={this.setItemToDelete.bind(this)}/>
               })}
-              <tr><td colSpan="2" className="text-danger text-center font-px-16">{!expenses.length ? strings[language]['empty_result'] : ''}</td></tr>
+              <tr><td colSpan="3" className="text-danger text-center font-px-16">{!expenses.length ? strings[language]['empty_result'] : ''}</td></tr>
             </tbody>
           </table>
         </div>
