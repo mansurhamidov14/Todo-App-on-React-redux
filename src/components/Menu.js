@@ -31,7 +31,7 @@ const Menu = ({language, page, setPageToView, categories}) => (
     <div className="list-group list-group-flush overflow-y pb-3">
       {Pages.map((pg, i) => <Link key={i} to={pg.route} className={`list-group-item list-group-item-action list-group-item-custom font-px-18 page-link ${pg.route === page ? 'active' : ''}`} onClick={() => setPageToView(pg.route)}><i className={`fa fa-${pg.icon}`}></i>&nbsp;{strings[language][pg.route.slice(1)]}</Link>)}
       <a href="#" className="list-group-item list-group-item-action list-group-item-custom font-px-16 pt-3 px-4 list-group-title">{strings[language]['categories']}</a>
-      {categories.map((pg, i) => <Link key={i} to={`/category/${pg.id}`} className={`list-group-item list-group-item-action list-group-item-custom font-px-18 page-link ${'/category/'+pg.id === page ? 'active' : ''}`} onClick={() => setPageToView(`catogory/${pg.id}`)}><i className={`fa fa-${pg.icon}`}></i>&nbsp;{pg[`title_${language}`]}</Link>)}
+      {categories.map((pg, i) => <Link key={i} to={`/category/${pg.id}`} className={`list-group-item list-group-item-action list-group-item-custom font-px-18 page-link ${'/category/'+pg.id === page ? 'active' : ''}`} onClick={() => setPageToView(`/category/${pg.id}`)}><i className={`fa fa-${pg.icon}`}></i>&nbsp;{pg[`title_${language}`]}</Link>)}
     </div>
   </div>
 );
