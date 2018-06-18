@@ -9,8 +9,8 @@ const milliSecondsToDdMmYyyy = milliseconds => {
   let date = newDate.getDate();
   let month = newDate.getMonth();
   let year = newDate.getFullYear();
-  date = `0${date}`.slice(0, 2);
-  month = `0${month +1}`.slice(0, 2);
+  date = `0${date}`.slice(-2);
+  month = `0${month +1}`.slice(-2);
   return `${date}.${month}.${year}`;
 }
 
