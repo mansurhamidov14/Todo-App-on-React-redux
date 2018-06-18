@@ -48,9 +48,9 @@ class Expenses extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      category: nextProps.match.params.id
+      category: nextProps.expensesVisibilityFilter.shownCategory
     })
-    this.shownCategory.value = nextProps.match.params.id;
+    this.shownCategory.value = nextProps.expensesVisibilityFilter.shownCategory;
     this.startDate.value = milliSecondsToDdMmYyyy(nextProps.expensesVisibilityFilter.startDate);
     this.endDate.value = milliSecondsToDdMmYyyy(nextProps.expensesVisibilityFilter.endDate);
   }
