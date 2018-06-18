@@ -53,7 +53,8 @@ const strings = {
     invalid_password: 'Şifrə düzgün daxil edilməyib!',
     valid_password: 'Şifrə düzgün daxil edilib!',
     login_blocked: 'Giriş etmək üçün şifrənizi daxil edin.',
-    login: 'Daxil ol'
+    login: 'Daxil ol',
+    additional: 'Əlavə'
   },
   en: {
     language: 'English',
@@ -109,7 +110,8 @@ const strings = {
     password_unset_success: 'Password was unset successfully!',
     password_added_fail: 'Error! Either password is too short or passwords are not same.',
     login_blocked: 'Enter password in order to countinue.',
-    login: 'Login'
+    login: 'Login',
+    additional: 'More'
   },
   ru: {
     language: 'Русский язык',
@@ -165,7 +167,8 @@ const strings = {
     password_unset_success: 'Пароль успешно удален!',
     password_added_fail: 'Ошибка! Пароль либо очень короткий либо пароли не совпадают.',
     login_blocked: 'Вход заблокирован. Введите пароль, чтобы продолжить',
-    login: 'Войти'
+    login: 'Войти',
+    additional: 'Дополнительно'
   }
 }
 

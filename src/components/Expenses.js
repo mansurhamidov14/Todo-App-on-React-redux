@@ -10,7 +10,6 @@ const milliSecondsToDdMmYyyy = milliseconds => {
   let month = newDate.getMonth();
   let year = newDate.getFullYear();
   month = `0${month +1}`.slice(0, 2);
-  console.log(`${date}.${month}.${year}`);
   return `${date}.${month}.${year}`;
 }
 
@@ -22,7 +21,6 @@ class Expenses extends Component {
       category: this.props.match.params.id,
       amount: 0
     }
-    console.log(this.state);
   }
 
   cancelDelete () {
@@ -48,6 +46,13 @@ class Expenses extends Component {
     this.props.dispatch(setPageToView(`/category/${event.target.value}`))
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      category: nextProps.match.params.id
+    })
+    this.shownCategory.value = nextProps.match.params.id
+  }
+
   applyFilter () {
     let startDate = this.startDate.value.split('.')[0];
     let startMonth = parseInt(this.startDate.value.split('.')[1], 10) - 1;
@@ -58,7 +63,6 @@ class Expenses extends Component {
     let dateBegin =  new Date(startYear, startMonth, startDate, 0, 0, 0, 0).getTime();
     let dateEnd = new Date(EndYear, EndMonth, EndDate, 0, 0, 0, 0).getTime();
     this.props.dispatch(setExpensesVisibilityFilter(dateBegin, dateEnd));
-    console.log(this.props.expensesVisibilityFilter);
     this.setState({
       category: this.shownCategory.value
     });
@@ -76,7 +80,7 @@ class Expenses extends Component {
               <div className="input-group-prepend">
                 <div className="input-group-text px-w-90">{strings[language]['category']}:</div>
               </div>
-              <select id="inputState" className="form-control" defaultValue={this.state.cagegory} ref={node => this.shownCategory = node}>
+              <select id="inputState" className="form-control" defaultValue={this.state.category} ref={node => this.shownCategory = node}>
                 <option value="all">{strings[language]['all_categories']}</option>
                 {categories.map(category => <option key={category.id} value={`${category.id}`}>{category[`title_${language}`]}</option> )}
               </select>
