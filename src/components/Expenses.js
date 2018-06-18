@@ -50,7 +50,9 @@ class Expenses extends Component {
     this.setState({
       category: nextProps.match.params.id
     })
-    this.shownCategory.value = nextProps.match.params.id
+    this.shownCategory.value = nextProps.match.params.id;
+    this.startDate.value = milliSecondsToDdMmYyyy(nextProps.expensesVisibilityFilter.startDate);
+    this.endDate.value = milliSecondsToDdMmYyyy(nextProps.expensesVisibilityFilter.endDate);
   }
 
   applyFilter () {
@@ -62,7 +64,8 @@ class Expenses extends Component {
     let EndYear = this.endDate.value.split('.')[2];
     let dateBegin =  new Date(startYear, startMonth, startDate, 0, 0, 0, 0).getTime();
     let dateEnd = new Date(EndYear, EndMonth, EndDate, 0, 0, 0, 0).getTime();
-    this.props.dispatch(setExpensesVisibilityFilter(dateBegin, dateEnd));
+    let shownCategory = this.shownCategory.value;
+    this.props.dispatch(setExpensesVisibilityFilter(dateBegin, dateEnd, shownCategory));
     this.setState({
       category: this.shownCategory.value
     });
@@ -95,26 +98,18 @@ class Expenses extends Component {
               <input type="text" className="form-control datepicker" ref={node => this.endDate = node} placeholder={strings[language]['toDate']} defaultValue={milliSecondsToDdMmYyyy(expensesVisibilityFilter.endDate)}/>
             </div>
           </div>
-          <button className="btn btn-success w-100 mb-5" onClick={this.applyFilter.bind(this)}>Apply filter</button>
+          <button className="btn btn-success w-100 mb-5" onClick={this.applyFilter.bind(this)}>{strings[language]['apply_filter']}</button>
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
-                <th colSpan="3">{strings[language]['list']}&nbsp;<span>({strings[language]['summary']}: {this.state.category === 'all' ? expenses.length : expenses.filter(e => e.category === this.state.category).length})</span></th>
+                <th colSpan="3">{strings[language]['list']}&nbsp;<span>({strings[language]['summary']}: {expenses.length})</span></th>
               </tr>
             </thead>
             <tbody>
               {expenses.map(expense => {
-                if(this.state.category === 'all') {
-                  return <Expense key={expense.id} {...expense} categories={categories} onDeleteClick={this.setItemToDelete.bind(this)}/>
-                }
-                else {
-                  if(expense.category === this.state.category) {
-                    return <Expense key={expense.id} {...expense} categories={categories} onDeleteClick={this.setItemToDelete.bind(this)}/>
-                  }
-                }
-                return <tr key={0}><td colSpan="3" className="text-danger text-center font-px-16">{strings[language]['empty_result']}</td></tr>;
+                return <Expense key={expense.id} {...expense} categories={categories} onDeleteClick={this.setItemToDelete.bind(this)}/>
               })}
-
+              <tr><td colSpan="2" className="text-danger text-center font-px-16">{!expenses.length ? strings[language]['empty_result'] : ''}</td></tr>
             </tbody>
           </table>
         </div>

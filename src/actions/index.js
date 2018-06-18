@@ -76,7 +76,7 @@ export const login = is_logged_in => ({
   is_logged_in
 });
 
-export const setExpensesVisibilityFilter = (startDate, endDate) => ({
+export const setExpensesVisibilityFilter = (startDate, endDate, shownCategory) => ({
   type: 'EXPENSES_VISIBILITY_FILTER',
-  filter: {startDate, endDate}
+  filter: {startDate, endDate, shownCategory}
 })

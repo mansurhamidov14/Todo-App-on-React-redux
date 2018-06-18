@@ -1,6 +1,7 @@
 const initialState = {
   startDate: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0, 0).getTime() - 30 * 86400000,
-  endDate: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0, 0).getTime()
+  endDate: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0, 0).getTime(),
+  shownCategory: 'all'
 };
 
 const expensesVisibilityFilter = (state = initialState, action) => {
@@ -8,7 +9,7 @@ const expensesVisibilityFilter = (state = initialState, action) => {
     case 'EXPENSES_VISIBILITY_FILTER':
       return action.filter;
     default:
-      return initialState;
+      return state;
   }
 }
 
