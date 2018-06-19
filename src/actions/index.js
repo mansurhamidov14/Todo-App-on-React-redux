@@ -9,11 +9,18 @@ export const SET_PASSWORD = 'SET_PASSWORD';
 export const LOGIN = 'LOGIN';
 export const ADD_CATEGORY = 'ADD_CATEGORY';
 export const REMOVE_CATEGORY = 'REMOVE_CATEGORY';
-export const ADD_EXPENSE = 'ADD_EXPENSE'
-export const REMOVE_EXPENSE = 'REMOVE_EXPENSE'
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const EDIT_TODO = 'EDIT_TODO';
+export const GET_TODO_BY_ID = 'GET_TODO_BY_ID';
 
 export const addTodo = payload => ({
   type: ADD_TODO,
+  payload
+});
+
+export const editTodo = payload => ({
+  type: EDIT_TODO,
   payload
 });
 
@@ -79,4 +86,9 @@ export const login = is_logged_in => ({
 export const setExpensesVisibilityFilter = (startDate, endDate, shownCategory) => ({
   type: 'EXPENSES_VISIBILITY_FILTER',
   filter: {startDate, endDate, shownCategory}
+});
+
+export const getTodoById = id => ({
+  type: GET_TODO_BY_ID,
+  id
 })

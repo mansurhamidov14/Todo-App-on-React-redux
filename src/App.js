@@ -6,6 +6,7 @@ import AddTodo from './views/AddTodo';
 import AddExpense from './views/AddExpense';
 import ExpensesList from './views/ExpensesList';
 import WeekDaysList from './views/WeekDaysList';
+import EditTodo from './views/EditTodo';
 import Settings from './views/Settings';
 import About from './views/About';
 import Login from './views/Login';
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/weekdayslist" component={WeekDaysList}/>
           <Route path="/add_expense" component={AddExpense}/>
           <Route path="/category/:id" component={ExpensesList}/>
+          <Route path="/edit_todo/:id" component={EditTodo}/>
           <Route path="/settings" component={Settings}/>
           <Route path="/about" component={About}/>
         </div>

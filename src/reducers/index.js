@@ -9,6 +9,7 @@ import categories from './categories';
 import expenses from './expenses';
 import expensesVisibilityFilter from './expensesVisibilityFilter';
 import is_logged_in from './authorization';
+import editedTodo from './editedTodo';
 
 export default combineReducers({
   language,
@@ -20,5 +21,6 @@ export default combineReducers({
   categories,
   expenses,
   expensesVisibilityFilter,
-  is_logged_in
+  is_logged_in,
+  editedTodo
 });

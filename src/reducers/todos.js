@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, EDIT_TODO } from '../actions';
 
 const initialState = [];
 const today = new Date();
@@ -19,8 +19,9 @@ const todos = (state = initialState, action) => {
       ...state.slice(index + 1)
     ];
     case TOGGLE_TODO:
-      console.log(action.payload);
       return state.map(todo => todo.id === action.payload.id ? {...todo, completed: todo.completed !== setDateToToggle(todayDate, action.payload.weekDay) ? setDateToToggle(todayDate, action.payload.weekDay) : null} : {...todo, completed: todo.completed});
+    case EDIT_TODO:
+      return state.map(todo => todo.id === action.payload.id ? {...todo,  ...action.payload} : {...todo});
     default:
       return state;
   }
