@@ -58,6 +58,7 @@
       var slidingMenu = new Hammer(app);
       $(document).on('click', '#confirm, #unset', function() {
         $('#addSuccess').fadeIn(500).fadeOut(2000);
+        window.scrollTo(0, 0);
       })
       $(document).ready(function () {
 

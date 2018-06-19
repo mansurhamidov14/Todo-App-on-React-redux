@@ -7,27 +7,37 @@ class AddTodo extends Component {
   constructor (props) {
     super(props);
     this.day = [];
+    this.state = {
+      successStatus: 'alert-danger',
+      successMessage: strings[this.props.language]['todo_added_error']
+    }
   }
 
   submitForm () {
-    this.day.forEach(d =>{
-      if(d.checked){
+    let errors = [];
+    if (!this.text.value.length) { errors.push('textError')}
+    var daysToAdd = this.day.filter(d => d.checked);
+    if (!daysToAdd.length) {errors.push('daysError')}
+    if (!errors.length) {
+      this.setState({
+        successStatus: 'alert-success',
+        successMessage: strings[this.props.language]['todo_added']
+      })
+      daysToAdd.forEach(d => {
         this.props.dispatch(addTodo({text: this.text.value, date:parseInt(d.value, 10)}));
-      }
-    })
-
-    console.log(this.day)
+      })
+    }
     this.text.value = null;
   }
 
   render () {
     let { language } = this.props;
     return (
-      <div className="container-fluid rendered-component bg-light">
+      <div className="container-fluid rendered-component bg-light pb-4">
         <div className="row">
           <div className="col-12 mt-3">
-            <div className="alert alert-success text-center" id="addSuccess" role="alert">
-              {strings[language]['todo_added']}
+            <div className={`text-center alert ${this.state.successStatus}`} id="addSuccess" role="alert">
+              {this.state.successMessage}
             </div>
             <div className="form-group">
               <div className="input-group">
