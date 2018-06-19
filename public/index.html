@@ -68,7 +68,7 @@
         slidingMenu.on('panleft panright tap press', function (e) {
           if (e.type === 'panright' && e.center.x < 70) {
             menu.open()
-          } else if (e.type === 'panleft') {
+          } else if (e.type === 'panleft' && e.deltaY > -15 && e.deltaY < 15) {
             menu.close();
           }
         })
