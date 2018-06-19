@@ -53,7 +53,7 @@ class AddExpense extends Component {
             <div className="form-group">
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">{strings[language]['amount']}</div>
+                  <div className="input-group-text px-w-90">{strings[language]['amount']}:</div>
                 </div>
                 <input type="text" className="form-control" ref={node => this.manat = node} placeholder={strings[language]['manat']}/>
                 <input type="text" className="form-control" ref={node => this.coins = node} placeholder={strings[language]['penny']}/>

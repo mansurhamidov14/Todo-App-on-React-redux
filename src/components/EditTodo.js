@@ -46,7 +46,7 @@ class EditTodo extends Component {
         successStatus: 'alert-success',
         successMessage: strings[this.props.language]['todo_edited']
       })
-      this.props.dispatch(editTodo({text: this.state.text, date:parseInt(this.state.date, 10)}));
+      this.props.dispatch(editTodo({id: this.state.id, text: this.state.text, date:parseInt(this.state.date, 10)}));
     }
   }
 
@@ -84,7 +84,7 @@ class EditTodo extends Component {
             </select>
           </div>
         </div>
-        <button type="button" className="btn btn-success w-100" id="confirm" onClick={this.submitForm.bind(this)}>{strings[language]['add']}</button>
+        <button type="button" className="btn btn-success w-100" id="confirm" onClick={this.submitForm.bind(this)}>{strings[language]['edit_record']}</button>
       </div>
     )
   }

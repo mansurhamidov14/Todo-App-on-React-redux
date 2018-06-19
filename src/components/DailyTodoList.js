@@ -40,7 +40,7 @@ class DailyTodoList extends Component {
               </tr>
             </thead>
             <tbody>
-              {todos.map(todo => <Todo key={todo.id} {...todo} todoId={todo.id} onToggleClick={() => onTodoClick(todo.id, todo.date)} onDeleteClick={this.setItemToDelete.bind(this)}/>)}
+              {todos.map(todo => <Todo key={todo.id} language={language} strings={strings} {...todo} todoId={todo.id} onToggleClick={() => onTodoClick(todo.id, todo.date)} onDeleteClick={this.setItemToDelete.bind(this)}/>)}
               <tr><td colSpan="2" className="text-danger text-center font-px-16">{!todos.length ? strings[language]['notodo_this_day'] : ''}</td></tr>
             </tbody>
           </table>

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Todo = ({todoId, text, onToggleClick, onDeleteClick, completed, date}) => {
+const Todo = ({todoId, text, onToggleClick, onDeleteClick, completed, date, language, strings}) => {
   let today = new Date();
   let currentDate = today.getDate();
   let currentMonth = today.getMonth();
@@ -11,7 +12,9 @@ const Todo = ({todoId, text, onToggleClick, onDeleteClick, completed, date}) => 
   let dateToBeCompleted = currentMilliSeconds + differenceInMilliseconds;
   return (
     <tr className={completed < dateToBeCompleted ? 'table-warning' : 'table-success'}>
-      <td>{text}</td>
+      <td>{text}<br/>
+      <Link to={`/edit_todo/${todoId}`} className="btn btn-info font-px-13 py-0"><i className="fa fa-pencil-square-o"></i>&nbsp;{strings[language]['edit_record']}</Link>
+      </td>
       <td className="text-right px-w-120">
         <button
           className={completed < dateToBeCompleted ? 'btn btn-warning fa fa-warning mr-2' : 'btn btn-success fa fa-check-square-o mr-2'}
