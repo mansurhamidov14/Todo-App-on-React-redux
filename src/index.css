@@ -1,7 +1,6 @@
 #root {
   height:100vh;
 }
-
 .header {
   position:fixed;
   top:0;
@@ -164,4 +163,11 @@
 .overflow-y {
   height: calc(100vh - 60px);
   overflow-y: scroll
+}
+.day-checkboxes input {
+  display:none;
+}
+.day-checkboxes input:checked + .list-group-item {
+  background:#007BFF;
+  color: #fff;
 }

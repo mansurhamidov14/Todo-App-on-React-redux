@@ -4,11 +4,20 @@ import { addTodo } from '../actions';
 import strings from '../translates/strings';
 
 class AddTodo extends Component {
-  submitForm () {
+  constructor (props) {
+    super(props);
+    this.day = [];
+  }
 
-    this.props.dispatch(addTodo({text: this.text.value, date:parseInt(this.date.value, 10)}));
+  submitForm () {
+    this.day.forEach(d =>{
+      if(d.checked){
+        this.props.dispatch(addTodo({text: this.text.value, date:parseInt(d.value, 10)}));
+      }
+    })
+
+    console.log(this.day)
     this.text.value = null;
-    this.date.value = "";
   }
 
   render () {
@@ -33,18 +42,22 @@ class AddTodo extends Component {
                     ref={node => this.text = node}/>
               </div>
             </div>
-            <div className="form-group">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <div className="input-group-text px-w-90">{strings[language]['day_of_week']}:</div>
-                </div>
-                <select ref={node => this.date = node} className="form-control" defaultValue={new Date().getDay()}>
-                  {
-                    [1, 2, 3, 4, 5, 6, 0].map(i => <option key={i} value={i}>{strings[language]['week_days'][i]}</option>)
-                  }
-                </select>
-              </div>
+            <div className="alert alert-primary mt-4 text-center px-5" role="alert">
+              {strings[language]['choose_day_of_week']}
             </div>
+            <ul className="list-group day-checkboxes">
+              {
+                [1, 2, 3, 4, 5, 6, 0].map(i =>
+                  <label key={i}>
+                    <input defaultChecked={i === new Date().getDay()} type="checkbox" id={`day_${i}`} ref={node => this.day[i] = node} defaultValue={i}/>
+                    <li className={`list-group-item`}>
+                      {strings[language]['week_days'][i]}
+                    </li>
+                  </label>
+                )
+              }
+            </ul>
+
             <button type="button" className="btn btn-success w-100" id="confirm" onClick={this.submitForm.bind(this)}>{strings[language]['add']}</button>
           </div>
         </div>
