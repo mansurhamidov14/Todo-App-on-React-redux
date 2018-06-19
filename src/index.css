@@ -168,6 +168,7 @@
   display:none;
 }
 .day-checkboxes input:checked + .list-group-item {
-  background:#007BFF;
-  color: #fff;
+  background:#D4EDDA;
+  color: #28A745;
+  border:1px solid #28A745;
 }
