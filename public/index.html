@@ -50,17 +50,28 @@
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.az.min.js" charset="UTF-8"></script>
     <script type="text/javascript" src="%PUBLIC_URL%/bootstrap-datepicker.ru.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/hammer.min.js"></script>
     <script>
       $.fn.datepicker.defaults.autoclose = true;
       $.fn.datepicker.defaults.format = 'dd.mm.yyyy';
+      var app = document.getElementById('root');
+      var slidingMenu = new Hammer(app);
       $(document).on('click', '#confirm, #unset', function() {
         $('#addSuccess').fadeIn(500).fadeOut(2000);
       })
       $(document).ready(function () {
+
         $.fn.datepicker.defaults.language = $('#currentLanguage').val();
         var menu = $('#my-menu').slideMenu({
           position:'left'
         });
+        slidingMenu.on('panleft panright tap press', function (e) {
+          if (e.type === 'panright' && e.center.x < 70) {
+            menu.open()
+          } else if (e.type === 'panleft') {
+            menu.close();
+          }
+        })
         $('#toggle-menu').on('click', function() {
           menu.toggle();
         });

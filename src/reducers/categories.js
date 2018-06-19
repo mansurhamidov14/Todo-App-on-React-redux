@@ -21,7 +21,7 @@ const initialState = [
     id: 3,
     icon: 'shopping-bag',
     title_az: 'Aksesuar',
-    title_en: 'Acessories',
+    title_en: 'Accessories',
     title_ru: 'Аксессуары',
     readonly: true
   },
