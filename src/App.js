@@ -20,7 +20,7 @@ class App extends Component {
         <div className="App">
           <Menu language={language} page={page}/>
           <input type="hidden" defaultValue={language} id="currentLanguage"/>
-          <div className="container-fluid">
+          <div className="container-fluid pb-4">
             <div className="row">
               <div className="col-12 bg-primary header">
                 <button id="toggle-menu" className="btn btn-primary mt-2">

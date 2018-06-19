@@ -10,9 +10,9 @@ const calculateBalance = (array = [], initialBalance = 0) => {
 
 const getVisibleExpenses = (expenses, filter) => {
     if(filter.shownCategory === 'all') {
-      return expenses.filter(e => e.date >= filter.startDate && e.date <= filter.endDate);
+      return expenses.filter(e => e.date >= filter.startDate && e.date <= filter.endDate).sort((a, b) => b.date - a.date);
     }
-    return expenses.filter(e => e.date >= filter.startDate && e.date <= filter.endDate && e.category === filter.shownCategory);
+    return expenses.filter(e => e.date >= filter.startDate && e.date <= filter.endDate && e.category === filter.shownCategory).sort((a, b) => b.date - a.date);
 }
 
 const mapStateToProps = state => ({
