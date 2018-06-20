@@ -3,16 +3,27 @@ import { connect } from 'react-redux';
 import { addExpense } from '../actions';
 import strings from '../translates/strings';
 
+const milliSecondsToDdMmYyyy = milliseconds => {
+  let newDate = new Date(milliseconds);
+  let date = newDate.getDate();
+  let month = newDate.getMonth();
+  let year = newDate.getFullYear();
+  date = `0${date}`.slice(-2);
+  month = `0${month +1}`.slice(-2);
+  return `${date}.${month}.${year}`;
+}
+
 class AddExpense extends Component {
   submitForm () {
     let fullDate = this.date.value.split('.');
     console.log(fullDate);
     let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
     date = date.getTime();
+    // this.coins.value = this.coins.value ? this.coins.value : 0;
+    // this.manat.value = this.manat.value ? this.manat.value : 0;
     let amount = parseInt(this.manat.value, 10) + parseInt(this.coins.value, 10)/100;
     this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
     this.text.value = null;
-    this.date.value = null;
     this.manat.value = `0`;
     this.coins.value = `00`;
   }
@@ -78,7 +89,7 @@ class AddExpense extends Component {
                 <div className="input-group-prepend">
                   <div className="input-group-text px-w-90">{strings[language]['date']}:</div>
                 </div>
-                <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder={strings[language]['date']}/>
+                <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder={strings[language]['date']} defaultValue={milliSecondsToDdMmYyyy(new Date().getTime())}/>
                 <div className="input-group-append">
                   <div className="input-group-text fa fa-calendar px-w-60"></div>
                 </div>
