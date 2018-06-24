@@ -14,7 +14,17 @@ const milliSecondsToDdMmYyyy = milliseconds => {
 }
 
 class AddExpense extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      successStatus: 'alert-danger',
+      successMessage: strings[this.props.language]['expense_added_error'],
+      textHasError: '',
+      amountHasError: ''
+    }
+  }
   submitForm () {
+    let errors = [];
     let fullDate = this.date.value.split('.');
     console.log(fullDate);
     let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
@@ -22,10 +32,31 @@ class AddExpense extends Component {
     this.coins.value = this.coins.value ? this.coins.value : 0;
     this.manat.value = this.manat.value ? this.manat.value : 0;
     let amount = parseInt(this.manat.value, 10) + parseInt(this.coins.value, 10)/100;
-    this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
-    this.text.value = null;
-    this.manat.value = `0`;
-    this.coins.value = `00`;
+    if(amount === 0) {
+      errors.push('amount-error');
+      this.setState({
+        amountHasError: 'has-error'
+      })
+    }
+    if(this.text.value === '') {
+      errors.push('text-error');
+      this.setState({
+        textHasError: 'has-error'
+      })
+    }
+    if(!errors.length) {
+      this.setState({
+        successStatus: 'alert-success',
+        successMessage: strings[this.props.language]['expense_added'],
+        amountHasError: '',
+        textHasError: ''
+      })
+      this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
+      this.text.value = null;
+      this.manat.value = `0`;
+      this.coins.value = `00`;
+    }
+
   }
 
   render () {
@@ -34,11 +65,11 @@ class AddExpense extends Component {
       <div className="container-fluid rendered-component bg-light">
         <div className="row">
           <div className="col-12 mt-3">
-            <div className="alert alert-success text-center" id="addSuccess" role="alert">
-              {strings[language]['expense_added']}
+            <div className={`text-center alert ${this.state.successStatus}`} id="addSuccess" role="alert">
+              {this.state.successMessage}
             </div>
             <div className="form-group">
-              <div className="input-group">
+              <div className={`input-group ${this.state.textHasError}`}>
                 <div className="input-group-prepend">
                   <div className="input-group-text px-w-90">{strings[language]['title']}:</div>
                 </div>
@@ -62,7 +93,7 @@ class AddExpense extends Component {
               </div>
             </div>
             <div className="form-group">
-              <div className="input-group">
+              <div className={`input-group ${this.state.amountHasError}`}>
                 <div className="input-group-prepend">
                   <div className="input-group-text px-w-90">{strings[language]['amount']}:</div>
                 </div>

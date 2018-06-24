@@ -9,19 +9,23 @@ class AddTodo extends Component {
     this.day = [];
     this.state = {
       successStatus: 'alert-danger',
-      successMessage: strings[this.props.language]['todo_added_error']
+      successMessage: strings[this.props.language]['todo_added_error'],
+      textHasError: '',
+      dayHasError: ''
     }
   }
 
   submitForm () {
     let errors = [];
-    if (!this.text.value.length) { errors.push('textError')}
+    if (!this.text.value.length) { errors.push('textError'); this.setState({textHasError: 'has-error'})}
     var daysToAdd = this.day.filter(d => d.checked);
-    if (!daysToAdd.length) {errors.push('daysError')}
+    if (!daysToAdd.length) {errors.push('daysError'); this.setState({dayHasError:'has-error'})}
     if (!errors.length) {
       this.setState({
         successStatus: 'alert-success',
-        successMessage: strings[this.props.language]['todo_added']
+        successMessage: strings[this.props.language]['todo_added'],
+        dayHasError: 'has-error',
+        textHasError: 'has-error'
       })
       daysToAdd.forEach(d => {
         this.props.dispatch(addTodo({text: this.text.value, date:parseInt(d.value, 10)}));
@@ -40,7 +44,7 @@ class AddTodo extends Component {
               {this.state.successMessage}
             </div>
             <div className="form-group">
-              <div className="input-group">
+              <div className={`input-group ${this.state.textHasError}`}>
                 <div className="input-group-prepend">
                   <div className="input-group-text px-w-90">{strings[language]['title']}:</div>
                 </div>
@@ -52,10 +56,10 @@ class AddTodo extends Component {
                     ref={node => this.text = node}/>
               </div>
             </div>
-            <div className="alert alert-primary mt-4 text-center px-5" role="alert">
+            <div className="alert alert-primary mt-4 text-center px-5 " role="alert">
               {strings[language]['choose_day_of_week']}
             </div>
-            <ul className="list-group day-checkboxes">
+            <ul className={`list-group mb-3 day-checkboxes ${this.state.dayHasError}`}>
               {
                 [1, 2, 3, 4, 5, 6, 0].map(i =>
                   <label key={i}>
