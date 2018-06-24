@@ -122,7 +122,7 @@ class Expenses extends Component {
           <table className="table table-striped">
             <thead className="bg-primary text-light">
               <tr>
-                <th colSpan="3">{strings[language]['balance']}: {balance} AZN</th>
+                <th colSpan="3">{strings[language]['balance']}: {balance.toFixed(2)} AZN</th>
               </tr>
             </thead>
             <tbody>

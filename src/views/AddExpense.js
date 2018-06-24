@@ -19,8 +19,8 @@ class AddExpense extends Component {
     console.log(fullDate);
     let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
     date = date.getTime();
-    // this.coins.value = this.coins.value ? this.coins.value : 0;
-    // this.manat.value = this.manat.value ? this.manat.value : 0;
+    this.coins.value = this.coins.value ? this.coins.value : 0;
+    this.manat.value = this.manat.value ? this.manat.value : 0;
     let amount = parseInt(this.manat.value, 10) + parseInt(this.coins.value, 10)/100;
     this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
     this.text.value = null;
