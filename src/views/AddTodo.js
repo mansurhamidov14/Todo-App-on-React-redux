@@ -24,8 +24,8 @@ class AddTodo extends Component {
       this.setState({
         successStatus: 'alert-success',
         successMessage: strings[this.props.language]['todo_added'],
-        dayHasError: 'has-error',
-        textHasError: 'has-error'
+        dayHasError: '',
+        textHasError: ''
       })
       daysToAdd.forEach(d => {
         this.props.dispatch(addTodo({text: this.text.value, date:parseInt(d.value, 10)}));
