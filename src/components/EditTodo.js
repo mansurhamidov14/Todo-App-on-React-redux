@@ -79,7 +79,7 @@ class EditTodo extends Component {
             <select className="form-control" value={this.state.date} onChange={this.handleDateChange.bind(this)}>
               <option value="">{strings[language]['day_of_week']}</option>
               {
-                [1, 2, 3, 4, 5, 6, 0].map(i => <option key={i} value={i}>{strings[language]['week_days'][i]}</option>)
+                [0, 1, 2, 3, 4, 5, 6].map(i => <option key={i} value={i}>{strings[language]['week_days'][i]}</option>)
               }
             </select>
           </div>

@@ -61,7 +61,7 @@ class AddTodo extends Component {
             </div>
             <ul className={`list-group mb-3 day-checkboxes ${this.state.dayHasError}`}>
               {
-                [1, 2, 3, 4, 5, 6, 0].map(i =>
+                [0, 1, 2, 3, 4, 5, 6].map(i =>
                   <label key={i}>
                     <input defaultChecked={i === new Date().getDay()} type="checkbox" id={`day_${i}`} ref={node => this.day[i] = node} defaultValue={i}/>
                     <li className={`list-group-item`}>

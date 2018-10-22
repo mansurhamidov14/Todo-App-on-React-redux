@@ -8,7 +8,7 @@ const currentDay = new Date().getDay();
 const DaysList = ({currentDate, setPageToView, setShownDate, language}) => (
   <div className="col-12 mt-3">
     <div className="list-group" id="list-tab" role="tablist">
-      {[1, 2, 3, 4, 5, 6, 0].map(i =>
+      {[0, 1, 2, 3, 4, 5, 6].map(i =>
         <Link key={i}
           className={i === currentDay ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}
           to="/home"
@@ -17,7 +17,7 @@ const DaysList = ({currentDate, setPageToView, setShownDate, language}) => (
         </Link>)}
     </div>
   </div>
-)
+);
 
 const mapStateToProps = state => ({
   language: state.language,
