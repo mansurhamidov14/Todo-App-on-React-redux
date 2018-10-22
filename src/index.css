@@ -164,15 +164,123 @@
   height: calc(100vh - 60px);
   overflow-y: scroll
 }
-.day-checkboxes input {
-  display:none;
-}
-.day-checkboxes input:checked + .list-group-item {
-  background:#D4EDDA;
-  color: #28A745;
-  border:1px solid #28A745;
-}
 .has-error {
   border: 1px solid #DC3545;
   border-radius:4px;
 }
+
+/* checkboxes start */
+.toggle-button-cover
+{
+  display: table-cell;
+  position: relative;
+  width: 50px;
+  height: 35px;
+  top: 5px;
+  box-sizing: border-box;
+}
+
+.button-cover
+{
+  margin: 10px;
+  background-color: #fff;
+}
+
+.button-cover, .knobs, .layer
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button
+{
+  position: relative;
+  top: 50%;
+  width: 50px;
+  height: 30px;
+  margin: -20px auto 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.button.r, .button.r .layer
+{
+  border-radius: 100px;
+}
+
+.button.b2
+{
+  border-radius: 2px;
+}
+
+.checkbox
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs
+{
+  z-index: 2;
+}
+
+.layer
+{
+  width: 100%;
+  background-color: #E9EAEC;
+  transition: 0.9s ease all;
+  z-index: 1;
+}
+
+/* Button 3 */
+.checkbox-switch .knobs:before
+{
+  content: '';
+  position: absolute;
+  background-color: #929BA3;
+  border-radius: 50%;
+  transition: 0.9s ease all, left 0.9s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  top: 5px;
+  left: 6px;
+  width: 19px;
+  height: 7px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  padding: 10px 6px;
+}
+
+.checkbox-switch .checkbox:active + .knobs:before
+{
+  width: 46px;
+  border-radius: 100px;
+}
+
+.checkbox-switch .checkbox:checked:active + .knobs:before
+{
+  margin-left: -26px;
+}
+
+.checkbox-switch .checkbox:checked + .knobs:before
+{
+  content: '';
+  left: 25px;
+  background-color: #28A745;
+}
+
+.checkbox-switch .checkbox:checked ~ .layer
+{
+  background-color: #D4EDDA;
+}
+/* checkboxes end */

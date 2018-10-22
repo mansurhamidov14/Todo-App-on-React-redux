@@ -56,21 +56,27 @@ class AddTodo extends Component {
                     ref={node => this.text = node}/>
               </div>
             </div>
-            <div className="alert alert-primary mt-4 text-center px-5 " role="alert">
-              {strings[language]['choose_day_of_week']}
-            </div>
-            <ul className={`list-group mb-3 day-checkboxes ${this.state.dayHasError}`}>
+            <div className={`list-group mb-3 day-checkboxes ${this.state.dayHasError}`}>
               {
                 [0, 1, 2, 3, 4, 5, 6].map(i =>
-                  <label key={i}>
-                    <input defaultChecked={i === new Date().getDay()} type="checkbox" id={`day_${i}`} ref={node => this.day[i] = node} defaultValue={i}/>
-                    <li className={`list-group-item`}>
-                      {strings[language]['week_days'][i]}
-                    </li>
-                  </label>
+                    <div className="list-group-item" key={i}>
+                      <div className="toggle-button-cover" style={{float:'right'}}>
+                        <div className="button-cover">
+                          <div className="button r checkbox-switch">
+                            <input className="checkbox" defaultChecked={i === new Date().getDay()} type="checkbox" id={`day_${i}`} ref={node => this.day[i] = node} defaultValue={i}/>
+                            <div className="knobs"/>
+                            <div className="layer"/>
+                          </div>
+                        </div>
+
+                      </div>
+                        <div className="mt-1">{strings[language]['week_days'][i]}</div>
+                    </div>
+
+
                 )
               }
-            </ul>
+            </div>
 
             <button type="button" className="btn btn-success w-100" id="confirm" onClick={this.submitForm.bind(this)}>{strings[language]['add']}</button>
           </div>
