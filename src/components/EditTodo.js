@@ -7,19 +7,19 @@ import strings from '../translates/strings';
 class EditTodo extends Component {
   constructor (props) {
     super(props);
+    console.log(props);
     this.state = {
       successStatus: 'alert-danger',
       successMessage: strings[this.props.language]['todo_added_error'],
       id: parseInt(props.match.params.id, 10),
-      text: '',
-      date: ''
-    }
+      text: props.todo.text || '',
+      date: props.todo.date || ''
+    };
     props.dispatch(getTodoById(parseInt(props.match.params.id, 10)))
   }
 
   componentWillReceiveProps (props) {
-    props.dispatch(getTodoById(parseInt(props.match.params.id, 10)))
-    console.log('props', props)
+    props.dispatch(getTodoById(parseInt(props.match.params.id, 10)));
     this.setState({
       text: props.todo.text,
       date: props.todo.date
@@ -45,7 +45,7 @@ class EditTodo extends Component {
       this.setState({
         successStatus: 'alert-success',
         successMessage: strings[this.props.language]['todo_edited']
-      })
+      });
       this.props.dispatch(editTodo({id: this.state.id, text: this.state.text, date:parseInt(this.state.date, 10)}));
     }
   }
@@ -92,6 +92,6 @@ class EditTodo extends Component {
 
 const mapStateToProps = state => ({
   language: state.language
-})
+});
 
 export default connect(mapStateToProps)(EditTodo);

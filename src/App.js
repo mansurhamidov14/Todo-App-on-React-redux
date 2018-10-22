@@ -25,7 +25,7 @@ class App extends Component {
             <div className="row">
               <div className="col-12 bg-primary header">
                 <button id="toggle-menu" className="btn btn-primary mt-2">
-                  <span className="fa fa-bars font-px-30"></span>
+                  <span className="fa fa-bars font-px-30"/>
                 </button>
               </div>
             </div>
@@ -49,7 +49,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   page: state.page,
   language: state.language
-})
+});
 
 // <VisibleTodoList />
 // <AddTodo />

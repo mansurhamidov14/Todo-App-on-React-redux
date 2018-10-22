@@ -11,7 +11,7 @@ const milliSecondsToDdMmYyyy = milliseconds => {
   date = `0${date}`.slice(-2);
   month = `0${month +1}`.slice(-2);
   return `${date}.${month}.${year}`;
-}
+};
 
 class AddExpense extends Component {
   constructor (props) {
@@ -26,7 +26,6 @@ class AddExpense extends Component {
   submitForm () {
     let errors = [];
     let fullDate = this.date.value.split('.');
-    console.log(fullDate);
     let date = new Date(fullDate[2], fullDate[1]-1, fullDate[0], 0, 0, 0, 0);
     date = date.getTime();
     this.coins.value = this.coins.value ? this.coins.value : 0;
@@ -50,7 +49,7 @@ class AddExpense extends Component {
         successMessage: strings[this.props.language]['expense_added'],
         amountHasError: '',
         textHasError: ''
-      })
+      });
       this.props.dispatch(addExpense({text: this.text.value, type: this.type.value, amount, category: this.category.value, date}));
       this.text.value = null;
       this.manat.value = `0`;
@@ -122,10 +121,10 @@ class AddExpense extends Component {
                 </div>
                 <input type="text" className="date form-control" id="datepicker" ref={node => this.date = node} placeholder={strings[language]['date']} defaultValue={milliSecondsToDdMmYyyy(new Date().getTime())}/>
                 <div className="input-group-append">
-                  <div className="input-group-text fa fa-calendar px-w-60"></div>
+                  <div className="input-group-text fa fa-calendar px-w-60"/>
                 </div>
                 <div className="input-group-addon">
-                    <span className="glyphicon glyphicon-th"></span>
+                    <span className="glyphicon glyphicon-th"/>
                 </div>
               </div>
             </div>
@@ -140,6 +139,6 @@ class AddExpense extends Component {
 const mapStateToProps = state => ({
   language: state.language,
   categories: state.categories
-})
+});
 
 export default connect(mapStateToProps)(AddExpense);
