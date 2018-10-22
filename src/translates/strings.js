@@ -113,7 +113,7 @@ const strings = {
     expense_added: 'Earning/expense was added successfully',
     expense_added_error: 'All fields should be filled to add earning/expense',
     summary: 'total',
-    balace: 'Balance',
+    balance: 'Balance',
     set_password: 'Set password',
     unset_password: 'Unset password',
     change_password: 'Change password',
