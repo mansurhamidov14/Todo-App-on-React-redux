@@ -1,11 +1,11 @@
 import {GET_TODO_BY_ID} from '../actions';
-const initialState = 1;
+const initialState = {};
 
 const editedTodo = (state = initialState, action) => {
   if (action.type === GET_TODO_BY_ID) {
-    return action.id
+    return action.payload[0]
   }
   return state;
-}
+};
 
 export default editedTodo;

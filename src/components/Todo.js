@@ -13,7 +13,7 @@ const Todo = ({todoId, text, onToggleClick, onDeleteClick, completed, date, lang
   return (
     <tr className={completed < dateToBeCompleted ? 'table-warning' : 'table-success'}>
       <td>{text}<br/>
-      <Link to={`/edit_todo/${todoId}`} className="btn btn-info font-px-13 py-0"><i className="fa fa-pencil-square-o"></i>&nbsp;{strings[language]['edit_record']}</Link>
+      <Link to={`/edit_todo/${todoId}`} className="btn btn-info font-px-13 py-0"><i className="fa fa-pencil-square-o"/>&nbsp;{strings[language]['edit_record']}</Link>
       </td>
       <td className="text-right px-w-120">
         <button

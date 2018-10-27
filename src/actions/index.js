@@ -88,7 +88,7 @@ export const setExpensesVisibilityFilter = (startDate, endDate, shownCategory) =
   filter: {startDate, endDate, shownCategory}
 });
 
-export const getTodoById = id => ({
+export const getTodoById = (id, todos) => ({
   type: GET_TODO_BY_ID,
-  id
-})
+  payload: todos.filter(t => t.id === id)
+});
